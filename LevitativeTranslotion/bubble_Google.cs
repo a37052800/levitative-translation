@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LevitativeTranslotion
 {
-    public partial class Form1 : Form
+    public partial class bubble_Google : Form
     {
-        public Form1()
+        public bubble_Google()
         {
             InitializeComponent();
         }
