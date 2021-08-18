@@ -23,9 +23,23 @@ namespace LevitativeTranslotion
             button.Text = e.KeyCode.ToString();
         }
 
-        private void comboBox1_TextUpdate(object sender, EventArgs e)
+        private void comboBoxTextChanged(object sender, EventArgs e)
         {
-            
+            ComboBox comboBox = (ComboBox)sender;
+            switch (comboBox.Text)
+            {
+                case "無":
+                    comboBox.Tag = null;
+                    break;
+                case "Google":
+                    googleSet GSForm = new googleSet();
+                    GSForm.Show();
+                    break;
+                case "NEAR":
+                    
+                    break;
+
+            }
         }
     }
 }

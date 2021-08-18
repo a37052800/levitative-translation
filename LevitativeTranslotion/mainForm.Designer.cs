@@ -94,7 +94,7 @@ namespace LevitativeTranslotion
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 2;
-            this.comboBox1.TextUpdate += new System.EventHandler(this.comboBox1_TextUpdate);
+            this.comboBox1.TextChanged += new System.EventHandler(this.comboBoxTextChanged);
             // 
             // comboBox2
             // 
@@ -139,7 +139,7 @@ namespace LevitativeTranslotion
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.comboBox3);
             this.groupBox2.Controls.Add(this.comboBox4);
-            this.groupBox2.Location = new System.Drawing.Point(61, 169);
+            this.groupBox2.Location = new System.Drawing.Point(61, 164);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(468, 105);
             this.groupBox2.TabIndex = 4;
@@ -171,6 +171,7 @@ namespace LevitativeTranslotion
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 23);
             this.comboBox3.TabIndex = 2;
+            this.comboBox3.TextChanged += new System.EventHandler(this.comboBoxTextChanged);
             // 
             // comboBox4
             // 
@@ -221,6 +222,7 @@ namespace LevitativeTranslotion
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(121, 23);
             this.comboBox5.TabIndex = 2;
+            this.comboBox5.TextChanged += new System.EventHandler(this.comboBoxTextChanged);
             // 
             // comboBox6
             // 
