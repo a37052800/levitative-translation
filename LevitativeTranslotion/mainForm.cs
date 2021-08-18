@@ -22,5 +22,10 @@ namespace LevitativeTranslotion
             Button button = (Button)sender;
             button.Text = e.KeyCode.ToString();
         }
+
+        private void comboBox1_TextUpdate(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

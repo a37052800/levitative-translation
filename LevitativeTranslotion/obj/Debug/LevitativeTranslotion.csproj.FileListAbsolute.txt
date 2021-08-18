@@ -8,3 +8,4 @@ E:\啟廷_HHD\程式\github\levitative-translation\LevitativeTranslotion\bin\Deb
 E:\啟廷_HHD\程式\github\levitative-translation\LevitativeTranslotion\obj\Debug\LevitativeTranslotion.exe
 E:\啟廷_HHD\程式\github\levitative-translation\LevitativeTranslotion\obj\Debug\LevitativeTranslotion.pdb
 E:\啟廷_HHD\程式\github\levitative-translation\LevitativeTranslotion\obj\Debug\LevitativeTranslotion.mainForm.resources
+E:\啟廷_HHD\程式\github\levitative-translation\LevitativeTranslotion\obj\Debug\LevitativeTranslotion.bubble_Google.resources

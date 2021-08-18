@@ -16,5 +16,16 @@ namespace LevitativeTranslotion
         {
             InitializeComponent();
         }
+
+        public bubble_Google(string str)
+        {
+            InitializeComponent();
+            label1.Text = str;
+        }
+
+        private void bubble_Google_Load(object sender, EventArgs e)
+        {
+            this.Size = label1.Size;
+        }
     }
 }

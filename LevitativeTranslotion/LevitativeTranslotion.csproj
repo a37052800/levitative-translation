@@ -52,6 +52,18 @@
     <Compile Include="bubble_Google.Designer.cs">
       <DependentUpon>bubble_Google.cs</DependentUpon>
     </Compile>
+    <Compile Include="bubble_NEAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bubble_NEAR.Designer.cs">
+      <DependentUpon>bubble_NEAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="googleSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="googleSet.Designer.cs">
+      <DependentUpon>googleSet.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +74,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="bubble_Google.resx">
       <DependentUpon>bubble_Google.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bubble_NEAR.resx">
+      <DependentUpon>bubble_NEAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="googleSet.resx">
+      <DependentUpon>googleSet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
