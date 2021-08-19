@@ -49,6 +49,7 @@ namespace LevitativeTranslotion
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -92,9 +93,9 @@ namespace LevitativeTranslotion
             "NAER"});
             this.comboBox1.Location = new System.Drawing.Point(167, 45);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
+            this.comboBox1.Size = new System.Drawing.Size(121, 27);
             this.comboBox1.TabIndex = 2;
-            this.comboBox1.TextChanged += new System.EventHandler(this.comboBoxTextChanged);
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBoxChanged);
             // 
             // comboBox2
             // 
@@ -105,8 +106,9 @@ namespace LevitativeTranslotion
             "貼上到視窗"});
             this.comboBox2.Location = new System.Drawing.Point(316, 45);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
+            this.comboBox2.Size = new System.Drawing.Size(121, 27);
             this.comboBox2.TabIndex = 2;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBoxChanged);
             // 
             // button1
             // 
@@ -127,24 +129,26 @@ namespace LevitativeTranslotion
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.groupBox1.Location = new System.Drawing.Point(61, 35);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(468, 105);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "快捷鍵1";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.comboBox3);
             this.groupBox2.Controls.Add(this.comboBox4);
+            this.groupBox2.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.groupBox2.Location = new System.Drawing.Point(61, 164);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(468, 105);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox1";
+            this.groupBox2.Text = "快捷鍵3";
             // 
             // button2
             // 
@@ -169,9 +173,9 @@ namespace LevitativeTranslotion
             "NAER"});
             this.comboBox3.Location = new System.Drawing.Point(167, 45);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 23);
+            this.comboBox3.Size = new System.Drawing.Size(121, 27);
             this.comboBox3.TabIndex = 2;
-            this.comboBox3.TextChanged += new System.EventHandler(this.comboBoxTextChanged);
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBoxChanged);
             // 
             // comboBox4
             // 
@@ -182,20 +186,22 @@ namespace LevitativeTranslotion
             "貼上到視窗"});
             this.comboBox4.Location = new System.Drawing.Point(316, 45);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 23);
+            this.comboBox4.Size = new System.Drawing.Size(121, 27);
             this.comboBox4.TabIndex = 2;
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBoxChanged);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.comboBox5);
             this.groupBox3.Controls.Add(this.comboBox6);
+            this.groupBox3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.groupBox3.Location = new System.Drawing.Point(61, 295);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(468, 105);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox1";
+            this.groupBox3.Text = "快捷鍵3";
             // 
             // button3
             // 
@@ -220,9 +226,9 @@ namespace LevitativeTranslotion
             "NAER"});
             this.comboBox5.Location = new System.Drawing.Point(167, 45);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 23);
+            this.comboBox5.Size = new System.Drawing.Size(121, 27);
             this.comboBox5.TabIndex = 2;
-            this.comboBox5.TextChanged += new System.EventHandler(this.comboBoxTextChanged);
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBoxChanged);
             // 
             // comboBox6
             // 
@@ -233,25 +239,28 @@ namespace LevitativeTranslotion
             "貼上到視窗"});
             this.comboBox6.Location = new System.Drawing.Point(316, 45);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 23);
+            this.comboBox6.Size = new System.Drawing.Size(121, 27);
             this.comboBox6.TabIndex = 2;
+            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBoxChanged);
             // 
             // button4
             // 
+            this.button4.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button4.Location = new System.Drawing.Point(163, 441);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(85, 30);
             this.button4.TabIndex = 5;
-            this.button4.Text = "button4";
+            this.button4.Text = "重設";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
+            this.button5.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button5.Location = new System.Drawing.Point(359, 441);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.Size = new System.Drawing.Size(85, 30);
             this.button5.TabIndex = 6;
-            this.button5.Text = "button5";
+            this.button5.Text = "確定";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // mainForm
@@ -295,5 +304,6 @@ namespace LevitativeTranslotion
         private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

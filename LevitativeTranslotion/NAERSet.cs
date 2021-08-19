@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LevitativeTranslotion
 {
-    public partial class bubble_NEAR : Form
+    public partial class NAERSet : Form
     {
-        public bubble_NEAR()
+        public NAERSet()
         {
             InitializeComponent();
         }

@@ -52,11 +52,11 @@
     <Compile Include="bubble_Google.Designer.cs">
       <DependentUpon>bubble_Google.cs</DependentUpon>
     </Compile>
-    <Compile Include="bubble_NEAR.cs">
+    <Compile Include="bubble_NAER.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="bubble_NEAR.Designer.cs">
-      <DependentUpon>bubble_NEAR.cs</DependentUpon>
+    <Compile Include="bubble_NAER.Designer.cs">
+      <DependentUpon>bubble_NAER.cs</DependentUpon>
     </Compile>
     <Compile Include="googleSet.cs">
       <SubType>Form</SubType>
@@ -70,19 +70,25 @@
     <Compile Include="mainForm.Designer.cs">
       <DependentUpon>mainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NEARSet.cs">
+    <Compile Include="NAERSet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NEARSet.Designer.cs">
-      <DependentUpon>NEARSet.cs</DependentUpon>
+    <Compile Include="NAERSet.Designer.cs">
+      <DependentUpon>NAERSet.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="selectedWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="selectedWindow.Designer.cs">
+      <DependentUpon>selectedWindow.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="bubble_Google.resx">
       <DependentUpon>bubble_Google.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="bubble_NEAR.resx">
-      <DependentUpon>bubble_NEAR.cs</DependentUpon>
+    <EmbeddedResource Include="bubble_NAER.resx">
+      <DependentUpon>bubble_NAER.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="googleSet.resx">
       <DependentUpon>googleSet.cs</DependentUpon>
@@ -90,8 +96,8 @@
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NEARSet.resx">
-      <DependentUpon>NEARSet.cs</DependentUpon>
+    <EmbeddedResource Include="NAERSet.resx">
+      <DependentUpon>NAERSet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -102,6 +108,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="selectedWindow.resx">
+      <DependentUpon>selectedWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

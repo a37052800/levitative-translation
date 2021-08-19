@@ -1,7 +1,7 @@
 ﻿
 namespace LevitativeTranslotion
 {
-    partial class bubble_NEAR
+    partial class bubble_NAER
     {
         /// <summary>
         /// Required designer variable.
@@ -47,15 +47,15 @@ namespace LevitativeTranslotion
             this.dataGridView1.Size = new System.Drawing.Size(493, 485);
             this.dataGridView1.TabIndex = 0;
             // 
-            // bubble_NEAR
+            // bubble_NAER
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(493, 485);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "bubble_NEAR";
-            this.Text = "bubble_NEAR";
+            this.Name = "bubble_NAER";
+            this.Text = "bubble_NAER";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

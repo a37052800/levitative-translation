@@ -23,7 +23,7 @@ namespace LevitativeTranslotion
             button.Text = e.KeyCode.ToString();
         }
 
-        private void comboBoxTextChanged(object sender, EventArgs e)
+        private void comboBoxChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
             switch (comboBox.Text)
@@ -33,12 +33,19 @@ namespace LevitativeTranslotion
                     break;
                 case "Google":
                     googleSet GSForm = new googleSet();
-                    GSForm.Show();
+                    GSForm.ShowDialog();
                     break;
-                case "NEAR":
-                    
+                case "NAER":
+                    NAERSet NSForm = new NAERSet();
+                    NSForm.ShowDialog();
                     break;
-
+                case "輸出至文件":
+                    saveFileDialog1.ShowDialog();
+                    break;
+                case "貼上到視窗":
+                    selectedWindow SelForm = new selectedWindow();
+                    SelForm.ShowDialog();
+                    break;
             }
         }
     }

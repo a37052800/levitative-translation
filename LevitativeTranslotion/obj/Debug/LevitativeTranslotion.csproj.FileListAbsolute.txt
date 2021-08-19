@@ -9,5 +9,7 @@ E:\啟廷_HHD\程式\github\levitative-translation\LevitativeTranslotion\obj\Deb
 E:\啟廷_HHD\程式\github\levitative-translation\LevitativeTranslotion\obj\Debug\LevitativeTranslotion.pdb
 E:\啟廷_HHD\程式\github\levitative-translation\LevitativeTranslotion\obj\Debug\LevitativeTranslotion.mainForm.resources
 E:\啟廷_HHD\程式\github\levitative-translation\LevitativeTranslotion\obj\Debug\LevitativeTranslotion.bubble_Google.resources
-E:\啟廷_HHD\程式\github\levitative-translation\LevitativeTranslotion\obj\Debug\LevitativeTranslotion.bubble_NEAR.resources
 E:\啟廷_HHD\程式\github\levitative-translation\LevitativeTranslotion\obj\Debug\LevitativeTranslotion.googleSet.resources
+E:\啟廷_HHD\程式\github\levitative-translation\LevitativeTranslotion\obj\Debug\LevitativeTranslotion.selectedWindow.resources
+E:\啟廷_HHD\程式\github\levitative-translation\LevitativeTranslotion\obj\Debug\LevitativeTranslotion.bubble_NAER.resources
+E:\啟廷_HHD\程式\github\levitative-translation\LevitativeTranslotion\obj\Debug\LevitativeTranslotion.NAERSet.resources

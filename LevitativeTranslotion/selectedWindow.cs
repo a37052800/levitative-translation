@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LevitativeTranslotion
 {
-    public partial class NEARSet : Form
+    public partial class selectedWindow : Form
     {
-        public NEARSet()
+        public selectedWindow()
         {
             InitializeComponent();
         }
