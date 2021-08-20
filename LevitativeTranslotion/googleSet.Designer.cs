@@ -40,7 +40,7 @@ namespace LevitativeTranslotion
             this.comboBox1.Items.AddRange(new object[] {
             "自動偵測",
             "土耳其文",
-            "中文",
+            "繁體中文",
             "丹麥文",
             "日文",
             "世界語",
@@ -102,13 +102,14 @@ namespace LevitativeTranslotion
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 0;
+            this.comboBox1.Text = "自動偵測";
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "土耳其文",
-            "中文",
+            "繁體中文",
             "丹麥文",
             "日文",
             "世界語",
@@ -170,6 +171,7 @@ namespace LevitativeTranslotion
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 23);
             this.comboBox2.TabIndex = 0;
+            this.comboBox2.Text = "繁體中文";
             // 
             // button1
             // 
@@ -177,7 +179,7 @@ namespace LevitativeTranslotion
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
+            this.button1.Text = "確定";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // googleSet
@@ -190,6 +192,7 @@ namespace LevitativeTranslotion
             this.Controls.Add(this.comboBox1);
             this.Name = "googleSet";
             this.Text = "googleSet";
+            this.Load += new System.EventHandler(this.googleSet_Load);
             this.ResumeLayout(false);
 
         }

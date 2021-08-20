@@ -34,6 +34,7 @@ namespace LevitativeTranslotion
                 case "Google":
                     googleSet GSForm = new googleSet();
                     GSForm.ShowDialog();
+                    MessageBox.Show(Properties.Settings.Default.G_In + Properties.Settings.Default.G_Out);
                     break;
                 case "NAER":
                     NAERSet NSForm = new NAERSet();
