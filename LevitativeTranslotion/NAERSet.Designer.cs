@@ -132,11 +132,12 @@ namespace LevitativeTranslotion
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
+            this.checkBox4.Enabled = false;
             this.checkBox4.Location = new System.Drawing.Point(38, 177);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(91, 19);
+            this.checkBox4.Size = new System.Drawing.Size(149, 19);
             this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "checkBox4";
+            this.checkBox4.Text = "啟用特定類別搜尋";
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // numericUpDown1
@@ -161,7 +162,7 @@ namespace LevitativeTranslotion
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 6;
-            this.button3.Text = "button3";
+            this.button3.Text = "確定";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // NAERSet

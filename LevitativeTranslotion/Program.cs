@@ -26,14 +26,16 @@ namespace LevitativeTranslotion
         private bool[] _nDisplay = new bool[3];
         private int _nSearch;
 
-        public void gSet(string gIn, string gOut)
+        public SetConfig() { }
+
+        public SetConfig(string gIn, string gOut)
         {
             _type = "Google";
             _gSitting[0] = gIn;
             _gSitting[1] = gOut;
         }
 
-        public void nSet(bool sClass, bool sEn, bool sZh, int searchNum)
+        public SetConfig(bool sClass, bool sEn, bool sZh, int searchNum)
         {
             _type = "NAER";
             _nDisplay[0] = sClass;

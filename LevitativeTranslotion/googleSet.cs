@@ -24,7 +24,8 @@ namespace LevitativeTranslotion
 
         public SetConfig returnSitting()
         {
-            SetConfig config = new SetConfig();
+            SetConfig config = new SetConfig(tran[1,comboBox1.SelectedIndex],
+                                             tran[1,comboBox2.SelectedIndex+1]);
             return config;
         }
 

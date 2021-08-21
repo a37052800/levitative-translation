@@ -86,6 +86,7 @@ namespace LevitativeTranslotion
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "無",
@@ -99,6 +100,7 @@ namespace LevitativeTranslotion
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "無",
@@ -166,6 +168,7 @@ namespace LevitativeTranslotion
             // 
             // comboBox3
             // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
             "無",
@@ -179,6 +182,7 @@ namespace LevitativeTranslotion
             // 
             // comboBox4
             // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
             "無",
@@ -219,6 +223,7 @@ namespace LevitativeTranslotion
             // 
             // comboBox5
             // 
+            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Items.AddRange(new object[] {
             "無",
@@ -232,6 +237,7 @@ namespace LevitativeTranslotion
             // 
             // comboBox6
             // 
+            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Items.AddRange(new object[] {
             "無",
@@ -262,6 +268,12 @@ namespace LevitativeTranslotion
             this.button5.TabIndex = 6;
             this.button5.Text = "確定";
             this.button5.UseVisualStyleBackColor = true;
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "csv";
+            this.saveFileDialog1.FileName = "單字本.csv";
+            this.saveFileDialog1.Filter = "逗點分隔檔案|*.csv";
             // 
             // mainForm
             // 

@@ -15,6 +15,19 @@ namespace LevitativeTranslotion
         public selectedWindow()
         {
             InitializeComponent();
+            button1.DialogResult = DialogResult.OK;
+        }
+
+        private void button1_MouseDown(object sender, MouseEventArgs e)
+        {
+            button1.Image = Properties.Resources.empty;
+            button1.Cursor = new Cursor(GetType(), "aim.cur");
+        }
+
+        private void button1_MouseUp(object sender, MouseEventArgs e)
+        {
+            button1.Image = Properties.Resources.aim;
+            button1.Cursor = Cursors.Default;
         }
     }
 }

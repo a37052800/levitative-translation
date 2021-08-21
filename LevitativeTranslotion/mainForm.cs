@@ -33,21 +33,49 @@ namespace LevitativeTranslotion
                     break;
                 case "Google":
                     googleSet GSForm = new googleSet();
-                    GSForm.ShowDialog();
-                    MessageBox.Show(Properties.Settings.Default.G_In + Properties.Settings.Default.G_Out);
+                    if (GSForm.ShowDialog() == DialogResult.OK)
+                    {
+                        comboBox.Tag = GSForm.returnSitting();
+                    }
+                    else
+                    {
+                        comboBox.Text = "無";
+                    }
                     break;
                 case "NAER":
                     NAERSet NSForm = new NAERSet();
-                    NSForm.ShowDialog();
+                    if (NSForm.ShowDialog() == DialogResult.OK)
+                    {
+                        comboBox.Tag = NSForm.returnSetting();
+                    }
+                    else
+                    {
+                        comboBox.Text = "無";
+                    }
                     break;
                 case "輸出至文件":
-                    saveFileDialog1.ShowDialog();
+                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+
+                    }
+                    else
+                    {
+                        comboBox.Text = "無";
+                    }
                     break;
                 case "貼上到視窗":
                     selectedWindow SelForm = new selectedWindow();
-                    SelForm.ShowDialog();
+                    if (SelForm.ShowDialog() == DialogResult.OK)
+                    {
+
+                    }
+                    else
+                    {
+                        comboBox.Text = "無";
+                    }
                     break;
             }
+
         }
     }
 }

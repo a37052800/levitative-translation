@@ -107,6 +107,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="selectedWindow.resx">
       <DependentUpon>selectedWindow.cs</DependentUpon>
@@ -125,7 +126,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="aim.bmp" />
+    <EmbeddedResource Include="aim.cur" />
     <Content Include="icon.ico" />
+    <Content Include="empty.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
