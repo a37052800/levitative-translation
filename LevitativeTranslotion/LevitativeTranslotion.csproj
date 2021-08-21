@@ -84,6 +84,7 @@
     <Compile Include="selectedWindow.Designer.cs">
       <DependentUpon>selectedWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="winAPI.cs" />
     <EmbeddedResource Include="bubble_Google.resx">
       <DependentUpon>bubble_Google.cs</DependentUpon>
     </EmbeddedResource>

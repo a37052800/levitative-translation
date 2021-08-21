@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text;
 using System.Windows.Forms;
+using System.Threading;
+using System.Net;
 
 namespace LevitativeTranslotion
 {
     static class Program
     {
-        /// <summary>
-        /// 應用程式的主要進入點。
-        /// </summary>
         [STAThread]
         static void Main()
         {
@@ -19,6 +19,7 @@ namespace LevitativeTranslotion
             Application.Run(new mainForm());
         }
     }
+
     public class SetConfig
     {
         private string _type;
@@ -53,5 +54,65 @@ namespace LevitativeTranslotion
         public bool nEnglish { get => _nDisplay[0]; }
         public bool nChinese { get => _nDisplay[0]; }
         public int nSearchNum { get => _nSearch; }
+    }
+
+    public class Translator
+    {
+        public static string googleTranslatedText(string inLanguage, string outLanguage, string text)
+        {
+            WebClient webClient = new WebClient();
+            webClient.Encoding = Encoding.UTF8;
+            string result = webClient.DownloadString("https://translate.googleapis.com/translate_a/single?" +
+                                                     $"client=gtx&dt=t&sl={inLanguage}&tl={outLanguage}&q={text}");
+            string[] splitResult = new string[2];
+            splitResult = result.Split('"');
+            return splitResult[1];
+        }
+    }
+
+    delegate void HotkeyPressEvent();
+    class Hotkey
+    {
+        public event HotkeyPressEvent HotkeyPress;
+
+        public Hotkey(/*Keys keys*/)
+        {
+            /*Thread listenThread = new Thread(listenHotkey);
+            listenThread.Start();*/
+        }
+
+        public bool regHotkey(Keys keys)
+        {
+            if (winAPI.RegisterHotKey(IntPtr.Zero, 0, 0, (uint)keys))
+            {
+                MessageBox.Show("設置成功");
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("按鍵 " + keys.ToString() + " 已被占用" + '\n' + "請更換快捷鍵");
+                return false;
+            }
+        }
+
+        public void listenHotkey()
+        {
+            regHotkey(Keys.F6);
+            //HotkeyPress();
+            MSG msg = new MSG();
+            
+            while (true)  //0x0312 = Hotkey Messenge
+            {
+                HotkeyPress();
+                if (winAPI.GetMessage(ref msg, IntPtr.Zero, 0x0312, 0x0312))
+                {
+                    HotkeyPress();
+                }
+            }
+        }
+        public void enterEvent()
+        {
+            HotkeyPress();
+        }
     }
 }

@@ -21,6 +21,7 @@ namespace LevitativeTranslotion
         {
             Button button = (Button)sender;
             button.Text = e.KeyCode.ToString();
+            button.Tag = e.KeyCode;
         }
 
         private void comboBoxChanged(object sender, EventArgs e)
@@ -37,10 +38,7 @@ namespace LevitativeTranslotion
                     {
                         comboBox.Tag = GSForm.returnSitting();
                     }
-                    else
-                    {
-                        comboBox.Text = "無";
-                    }
+                    else comboBox.Text = "無";
                     break;
                 case "NAER":
                     NAERSet NSForm = new NAERSet();
@@ -48,34 +46,46 @@ namespace LevitativeTranslotion
                     {
                         comboBox.Tag = NSForm.returnSetting();
                     }
-                    else
-                    {
-                        comboBox.Text = "無";
-                    }
+                    else comboBox.Text = "無";
                     break;
                 case "輸出至文件":
                     if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                     {
 
                     }
-                    else
-                    {
-                        comboBox.Text = "無";
-                    }
+                    else comboBox.Text = "無";
                     break;
                 case "貼上到視窗":
                     selectedWindow SelForm = new selectedWindow();
-                    if (SelForm.ShowDialog() == DialogResult.OK)
+                    if ((SelForm.ShowDialog() == DialogResult.OK) && (SelForm.returnHWND() != IntPtr.Zero))
                     {
-
+                        comboBox.Tag = SelForm.returnHWND();
                     }
-                    else
-                    {
-                        comboBox.Text = "無";
-                    }
+                    else comboBox.Text = "無";
                     break;
             }
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Hotkey hotkey1 = new Hotkey(/*(Keys)button1.Tag*/);
+            hotkey1.HotkeyPress += new HotkeyPressEvent(Hotkey_Press);
+            hotkey1.enterEvent();
+            hotkey1.listenHotkey();
+        }
+
+        private void Hotkey_Press()
+        {
+            ctrlCKey();
+            MessageBox.Show(Clipboard.GetText());
+        }
+
+        public void ctrlCKey()
+        {
+            winAPI.KeyOperate(Keys.Control, 0);
+            winAPI.KeyOperate(Keys.C, 2);
+            winAPI.KeyOperate(Keys.Control, 1);
         }
     }
 }

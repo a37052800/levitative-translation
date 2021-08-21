@@ -60,6 +60,8 @@ namespace LevitativeTranslotion
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
+            this.checkBox3.Checked = true;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox3.Location = new System.Drawing.Point(20, 74);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(119, 19);
@@ -70,6 +72,8 @@ namespace LevitativeTranslotion
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Location = new System.Drawing.Point(20, 49);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(119, 19);
@@ -80,6 +84,8 @@ namespace LevitativeTranslotion
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Location = new System.Drawing.Point(20, 24);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(119, 19);
@@ -146,6 +152,11 @@ namespace LevitativeTranslotion
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 25);
             this.numericUpDown1.TabIndex = 4;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             // 
             // label1
             // 
