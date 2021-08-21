@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace LevitativeTranslotion
@@ -71,7 +71,6 @@ namespace LevitativeTranslotion
         {
             Hotkey hotkey1 = new Hotkey(/*(Keys)button1.Tag*/);
             hotkey1.HotkeyPress += new HotkeyPressEvent(Hotkey_Press);
-            hotkey1.enterEvent();
             hotkey1.listenHotkey();
         }
 
@@ -83,9 +82,10 @@ namespace LevitativeTranslotion
 
         public void ctrlCKey()
         {
-            winAPI.KeyOperate(Keys.Control, 0);
+            winAPI.KeyOperate(Keys.ControlKey, 0);
             winAPI.KeyOperate(Keys.C, 2);
-            winAPI.KeyOperate(Keys.Control, 1);
+            winAPI.KeyOperate(Keys.ControlKey, 1);
+            Thread.Sleep(100);
         }
     }
 }

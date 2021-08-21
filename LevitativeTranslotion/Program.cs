@@ -98,21 +98,17 @@ namespace LevitativeTranslotion
         public void listenHotkey()
         {
             regHotkey(Keys.F6);
-            //HotkeyPress();
-            MSG msg = new MSG();
-            
+            NativeMessage msg = new NativeMessage();
             while (true)  //0x0312 = Hotkey Messenge
             {
-                HotkeyPress();
-                if (winAPI.GetMessage(ref msg, IntPtr.Zero, 0x0312, 0x0312))
+                winAPI.PeekMessage(ref msg, IntPtr.Zero, 0x0312, 0x0312, 1);
+                if (msg.msg == 0x0312)
                 {
                     HotkeyPress();
+                    msg.msg = 0;
                 }
+
             }
-        }
-        public void enterEvent()
-        {
-            HotkeyPress();
         }
     }
 }

@@ -9,13 +9,14 @@ using System.Runtime.InteropServices;
 
 namespace LevitativeTranslotion
 {
-    struct MSG
+    public struct NativeMessage
     {
-        public IntPtr Hwnd;
-        public uint Message;
-        public IntPtr WParam;
-        public IntPtr LParam;
-        public uint Time;
+        public IntPtr handle;
+        public uint msg;
+        public IntPtr wParam;
+        public IntPtr lParam;
+        public uint time;
+        public System.Drawing.Point p;
     }
     class winAPI
     {
@@ -24,7 +25,9 @@ namespace LevitativeTranslotion
         [DllImport("user32.dll", EntryPoint = "RegisterHotKey", SetLastError = true)]
         public static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);
         [DllImport("user32.dll", EntryPoint = "GetMessage", SetLastError = true)]
-        public static extern bool GetMessage(ref MSG lpMsg, IntPtr hWnd, uint wMsgFilterMin, uint wMsgFilterMax);
+        public static extern int GetMessage(ref NativeMessage lpMsg, IntPtr hWnd, uint wMsgFilterMin, uint wMsgFilterMax);
+        [DllImport("user32.dll", EntryPoint = "PeekMessage", SetLastError = true)]
+        public static extern bool PeekMessage(ref NativeMessage lpMsg, IntPtr hWnd, uint wMsgFilterMin, uint wMsgFilterMax, uint wRemoveMsg);
         [DllImport("user32.dll", EntryPoint = "SendMessage", SetLastError = true)]
         public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
         [DllImport("user32.dll", EntryPoint = "GetForegroundWindow", SetLastError = true)]
