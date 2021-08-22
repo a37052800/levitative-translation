@@ -122,6 +122,7 @@ namespace LevitativeTranslotion
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 37);
             this.button1.TabIndex = 3;
+            this.button1.Tag = "";
             this.button1.Text = "F2";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.hotKeySlector_KeyUp);

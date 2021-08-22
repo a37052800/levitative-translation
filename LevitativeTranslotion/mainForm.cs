@@ -69,23 +69,17 @@ namespace LevitativeTranslotion
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Hotkey hotkey1 = new Hotkey(/*(Keys)button1.Tag*/);
+            Hotkey hotkey1 = new Hotkey((Keys)button1.Tag);
             hotkey1.HotkeyPress += new HotkeyPressEvent(Hotkey_Press);
-            hotkey1.listenHotkey();
         }
 
         private void Hotkey_Press()
         {
-            ctrlCKey();
-            MessageBox.Show(Clipboard.GetText());
+            winAPI.KeyOperate(Keys.ControlKey, Keys.C, 100);
+            MessageBox.Show("");
+            //this.Invoke(new mainThread());
         }
 
-        public void ctrlCKey()
-        {
-            winAPI.KeyOperate(Keys.ControlKey, 0);
-            winAPI.KeyOperate(Keys.C, 2);
-            winAPI.KeyOperate(Keys.ControlKey, 1);
-            Thread.Sleep(100);
-        }
+        private delegate void mainThread();
     }
 }

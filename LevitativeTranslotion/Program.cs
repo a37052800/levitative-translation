@@ -75,39 +75,37 @@ namespace LevitativeTranslotion
     {
         public event HotkeyPressEvent HotkeyPress;
 
-        public Hotkey(/*Keys keys*/)
+        public Hotkey(Keys keys)
         {
-            /*Thread listenThread = new Thread(listenHotkey);
-            listenThread.Start();*/
+            Thread hotkeyThread = new Thread(regHotkey);
+            hotkeyThread.Start(keys);
         }
 
-        public bool regHotkey(Keys keys)
+        private void regHotkey(object obj)
         {
+            Keys keys = (Keys)obj;
             if (winAPI.RegisterHotKey(IntPtr.Zero, 0, 0, (uint)keys))
             {
-                MessageBox.Show("設置成功");
-                return true;
+                //MessageBox.Show("設置成功");
+                listenHotkey();
             }
             else
             {
-                MessageBox.Show("按鍵 " + keys.ToString() + " 已被占用" + '\n' + "請更換快捷鍵");
-                return false;
+                MessageBox.Show("按鍵 " + keys.ToString() + " 已被占用，請更換快捷鍵");
             }
         }
 
-        public void listenHotkey()
+        private void listenHotkey()
         {
-            regHotkey(Keys.F6);
             NativeMessage msg = new NativeMessage();
-            while (true)  //0x0312 = Hotkey Messenge
+            while (true)
             {
                 winAPI.PeekMessage(ref msg, IntPtr.Zero, 0x0312, 0x0312, 1);
-                if (msg.msg == 0x0312)
+                if (msg.msg == 0x0312)  //0x0312 = Hotkey Messenge
                 {
-                    HotkeyPress();
+                    HotkeyPress?.Invoke();
                     msg.msg = 0;
                 }
-
             }
         }
     }

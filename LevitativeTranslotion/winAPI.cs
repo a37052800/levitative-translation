@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -58,6 +58,13 @@ namespace LevitativeTranslotion
                     keybd_event((byte)keys, 0, 2, IntPtr.Zero);
                     break;
             }
+        }
+        public static void KeyOperate(Keys keys1,Keys keys2,int sleep)
+        {
+            KeyOperate(keys1, (byte)0);
+            KeyOperate(keys2, (byte)2);
+            KeyOperate(keys1, (byte)1);
+            Thread.Sleep(sleep);
         }
     }
 }
