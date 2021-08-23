@@ -259,6 +259,7 @@ namespace LevitativeTranslotion
             this.button4.TabIndex = 5;
             this.button4.Text = "重設";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -287,7 +288,6 @@ namespace LevitativeTranslotion
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "mainForm";
             this.Text = "mainForm";
             this.contextMenuStrip1.ResumeLayout(false);

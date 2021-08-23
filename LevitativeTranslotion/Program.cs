@@ -29,14 +29,14 @@ namespace LevitativeTranslotion
 
         public SetConfig() { }
 
-        public SetConfig(string gIn, string gOut)
+        public SetConfig(string gIn, string gOut)  //for google
         {
             _type = "Google";
             _gSitting[0] = gIn;
             _gSitting[1] = gOut;
         }
 
-        public SetConfig(bool sClass, bool sEn, bool sZh, int searchNum)
+        public SetConfig(bool sClass, bool sEn, bool sZh, int searchNum)  //for NAER
         {
             _type = "NAER";
             _nDisplay[0] = sClass;
@@ -70,42 +70,51 @@ namespace LevitativeTranslotion
         }
     }
 
-    delegate void HotkeyPressEvent();
-    class Hotkey
+    public delegate void HotkeyPressEvent();
+    public class HotkeyThread
     {
-        public event HotkeyPressEvent HotkeyPress;
+        public static bool threadRun = true;
 
-        public Hotkey(Keys keys)
+        public static event HotkeyPressEvent HotkeyPress;
+
+        private class threadInfo
         {
-            Thread hotkeyThread = new Thread(regHotkey);
-            hotkeyThread.Start(keys);
+            public byte index { get; set; }
+            public Keys Keys { get; set; }
+
+            public threadInfo(byte index, Keys keys)
+            {
+                this.index = index;
+                this.Keys = keys;
+            }
         }
 
-        private void regHotkey(object obj)
+        public static void startNewThread(byte index, Keys keys)
         {
-            Keys keys = (Keys)obj;
-            if (winAPI.RegisterHotKey(IntPtr.Zero, 0, 0, (uint)keys))
+            threadInfo obj = new threadInfo(index, keys);
+            Thread hotkeyThread = new Thread(newHotkey);
+            hotkeyThread.Start(obj);
+        }
+
+        private static void newHotkey(object obj)
+        {
+            threadInfo info = (threadInfo)obj; 
+            if (winAPI.RegisterHotKey(IntPtr.Zero, 0, 0, (uint)info.Keys))
             {
-                //MessageBox.Show("設置成功");
-                listenHotkey();
+                NativeMessage msg = new NativeMessage();
+                while (threadRun)
+                {
+                    winAPI.PeekMessage(ref msg, IntPtr.Zero, 0x0312, 0x0312, 1);
+                    if (msg.msg == 0x0312)  //0x0312 = Hotkey Messenge
+                    {
+                        HotkeyPress?.Invoke();
+                        msg.msg = 0;
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("按鍵 " + keys.ToString() + " 已被占用，請更換快捷鍵");
-            }
-        }
-
-        private void listenHotkey()
-        {
-            NativeMessage msg = new NativeMessage();
-            while (true)
-            {
-                winAPI.PeekMessage(ref msg, IntPtr.Zero, 0x0312, 0x0312, 1);
-                if (msg.msg == 0x0312)  //0x0312 = Hotkey Messenge
-                {
-                    HotkeyPress?.Invoke();
-                    msg.msg = 0;
-                }
+                MessageBox.Show("按鍵 " + info.Keys.ToString() + " 已被占用，請更換快捷鍵");
             }
         }
     }

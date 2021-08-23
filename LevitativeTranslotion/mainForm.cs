@@ -15,6 +15,7 @@ namespace LevitativeTranslotion
         public mainForm()
         {
             InitializeComponent();
+            HotkeyThread.HotkeyPress += new HotkeyPressEvent(Hotkey_Press);
         }
 
         private void hotKeySlector_KeyUp(object sender, KeyEventArgs e)
@@ -69,8 +70,7 @@ namespace LevitativeTranslotion
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Hotkey hotkey1 = new Hotkey((Keys)button1.Tag);
-            hotkey1.HotkeyPress += new HotkeyPressEvent(Hotkey_Press);
+            HotkeyThread.startNewThread(1, (Keys)button1.Tag);
         }
 
         private void Hotkey_Press()
@@ -81,5 +81,10 @@ namespace LevitativeTranslotion
         }
 
         private delegate void mainThread();
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            HotkeyThread.threadRun = false;
+        }
     }
 }
