@@ -6,6 +6,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Net;
+using System.Collections;
+using HtmlAgilityPack;
 
 namespace LevitativeTranslotion
 {
@@ -57,9 +59,9 @@ namespace LevitativeTranslotion
         public string gIn { get => _gSitting[0]; }
         public string gOut { get => _gSitting[1]; }
 
-        public bool nClass { get => _nDisplay[0]; }
-        public bool nEnglish { get => _nDisplay[0]; }
-        public bool nChinese { get => _nDisplay[0]; }
+        public bool nSource { get => _nDisplay[0]; }
+        public bool nEnname { get => _nDisplay[0]; }
+        public bool nZhtwname { get => _nDisplay[0]; }
         public int nSearchNum { get => _nSearch; }
 
         public IntPtr hwnd { get => _hwnd; }
@@ -67,7 +69,7 @@ namespace LevitativeTranslotion
 
     public class Translator
     {
-        public static string googleTranslatedText(string inLanguage, string outLanguage, string text)
+        public static string GoogleTranslatedText(string inLanguage, string outLanguage, string text)
         {
             WebClient webClient = new WebClient();
             webClient.Encoding = Encoding.UTF8;
@@ -76,6 +78,36 @@ namespace LevitativeTranslotion
             string[] splitResult = new string[2];
             splitResult = result.Split('"');
             return splitResult[1];
+        }
+
+        public static ArrayList[] NAERSearch(bool source, bool enname, bool zhtwname, int searchNum, string text)
+        {
+            HtmlWeb htmlWeb = new HtmlWeb();
+            HtmlAgilityPack.HtmlDocument htmlDocument = htmlWeb.Load("https://terms.naer.edu.tw/search/?" +
+                                                                     $"q={text}&num={searchNum}");
+            ArrayList[] result = new ArrayList[3];
+            result[0] = new ArrayList();
+            result[1] = new ArrayList();
+            result[2] = new ArrayList();
+            if (source)
+            {
+                HtmlNodeCollection SoNodes = htmlDocument.DocumentNode.SelectNodes("//td[@class='sourceW']/a");
+                foreach (HtmlNode So in SoNodes)
+                    result[0].Add(So.InnerText);
+            }
+            if (enname)
+            {
+                HtmlNodeCollection EnNodes = htmlDocument.DocumentNode.SelectNodes("//td[@class='ennameW']/a");
+                foreach (HtmlNode En in EnNodes)
+                    result[1].Add(En.InnerText);
+            }
+            if (zhtwname)
+            {
+                HtmlNodeCollection ZhNodes = htmlDocument.DocumentNode.SelectNodes("//td[@class='zhtwnameW']/a");
+                foreach (HtmlNode Zh in ZhNodes)
+                    result[2].Add(Zh.InnerText);
+            }
+            return result;
         }
     }
 
@@ -107,7 +139,7 @@ namespace LevitativeTranslotion
 
         private static void NewHotkey(object obj)
         {
-            ThreadInfo info = (ThreadInfo)obj; 
+            ThreadInfo info = (ThreadInfo)obj;
             if (winAPI.RegisterHotKey(IntPtr.Zero, 0, 0, (uint)info.Keys))
             {
                 NativeMessage msg = new NativeMessage();

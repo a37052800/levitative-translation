@@ -82,7 +82,7 @@ namespace LevitativeTranslotion
             switch (config.config1.type)
             {
                 case "Google":
-                    bubble_Google bubble = new bubble_Google(Translator.googleTranslatedText(config.config1.gIn,
+                    bubble_Google bubble = new bubble_Google(Translator.GoogleTranslatedText(config.config1.gIn,
                                                                                              config.config1.gOut,
                                                                                              config.text));
                     bubble.ShowDialog();
