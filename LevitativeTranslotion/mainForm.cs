@@ -18,14 +18,14 @@ namespace LevitativeTranslotion
             HotkeyThread.HotkeyPress += new HotkeyPressEvent(Hotkey_Press);
         }
 
-        private void hotKeySlector_KeyUp(object sender, KeyEventArgs e)
+        private void HotKeySlector_KeyUp(object sender, KeyEventArgs e)
         {
             Button button = (Button)sender;
             button.Text = e.KeyCode.ToString();
             button.Tag = e.KeyCode;
         }
 
-        private void comboBoxChanged(object sender, EventArgs e)
+        private void ComboBoxChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
             switch (comboBox.Text)
@@ -58,33 +58,88 @@ namespace LevitativeTranslotion
                     break;
                 case "貼上到視窗":
                     selectedWindow SelForm = new selectedWindow();
-                    if ((SelForm.ShowDialog() == DialogResult.OK) && (SelForm.returnHWND() != IntPtr.Zero))
+                    if ((SelForm.ShowDialog() == DialogResult.OK) && (SelForm.returnHWND().hwnd != IntPtr.Zero))
                     {
                         comboBox.Tag = SelForm.returnHWND();
                     }
                     else comboBox.Text = "無";
                     break;
             }
-
+            if (comboBox.Text == "無")
+                comboBox.Tag = null;
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void OK_Click(object sender, EventArgs e)
         {
-            HotkeyThread.startNewThread(1, (Keys)button1.Tag);
+            HotkeyThread.StartNewThread(1, (Keys)button1.Tag);
         }
 
-        private void Hotkey_Press()
+        private void Hotkey_Press(byte index)
         {
             winAPI.KeyOperate(Keys.ControlKey, Keys.C, 100);
-            MessageBox.Show("");
-            //this.Invoke(new mainThread());
+            object obj = Invoke(new mainThread(GetConfig), new object[] { index });
+            Config config = (Config)obj;
+            switch (config.config1.type)
+            {
+                case "Google":
+                    bubble_Google bubble = new bubble_Google(Translator.googleTranslatedText(config.config1.gIn,
+                                                                                             config.config1.gOut,
+                                                                                             config.text));
+                    bubble.ShowDialog();
+                    break;
+                case "NAER":
+                    break;
+            }
         }
 
-        private delegate void mainThread();
+        private delegate Config mainThread(byte index);
 
-        private void button4_Click(object sender, EventArgs e)
+        private struct Config
+        {
+            public string text;
+            public SetConfig config1;
+            public SetConfig config2;
+        }
+
+        private Config GetConfig(byte index)
+        {
+            SetConfig set1 = new SetConfig();
+            SetConfig set2 = new SetConfig();
+            switch (index)
+            {
+                case 1:
+                    if (comboBox1.Tag != null)
+                        set1 = (SetConfig)comboBox1.Tag;
+                    if (comboBox2.Tag != null)
+                        set2 = (SetConfig)comboBox2.Tag;
+                    break;
+                case 2:
+                    if (comboBox3.Tag != null)
+                        set1 = (SetConfig)comboBox3.Tag;
+                    if (comboBox4.Tag != null)
+                        set2 = (SetConfig)comboBox4.Tag;
+                    break;
+                case 3:
+                    if (comboBox5.Tag != null)
+                        set1 = (SetConfig)comboBox5.Tag;
+                    if (comboBox6.Tag != null)
+                        set2 = (SetConfig)comboBox6.Tag;
+                    break;
+            }
+            Config config = new Config
+            {
+                text = Clipboard.GetText(),
+                config1 = set1,
+                config2 = set2
+            };
+            return config;
+        }
+
+        private void Reset_Click(object sender, EventArgs e)
         {
             HotkeyThread.threadRun = false;
+            Thread.Sleep(100);
+            HotkeyThread.threadRun = true;
         }
     }
 }

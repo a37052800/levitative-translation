@@ -96,7 +96,7 @@ namespace LevitativeTranslotion
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 27);
             this.comboBox1.TabIndex = 2;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBoxChanged);
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChanged);
             // 
             // comboBox2
             // 
@@ -110,7 +110,7 @@ namespace LevitativeTranslotion
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 27);
             this.comboBox2.TabIndex = 2;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBoxChanged);
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChanged);
             // 
             // button1
             // 
@@ -125,7 +125,7 @@ namespace LevitativeTranslotion
             this.button1.Tag = "";
             this.button1.Text = "F2";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.hotKeySlector_KeyUp);
+            this.button1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HotKeySlector_KeyUp);
             // 
             // groupBox1
             // 
@@ -165,7 +165,7 @@ namespace LevitativeTranslotion
             this.button2.TabIndex = 3;
             this.button2.Text = "F2";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.hotKeySlector_KeyUp);
+            this.button2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HotKeySlector_KeyUp);
             // 
             // comboBox3
             // 
@@ -179,7 +179,7 @@ namespace LevitativeTranslotion
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 27);
             this.comboBox3.TabIndex = 2;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBoxChanged);
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChanged);
             // 
             // comboBox4
             // 
@@ -193,7 +193,7 @@ namespace LevitativeTranslotion
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(121, 27);
             this.comboBox4.TabIndex = 2;
-            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBoxChanged);
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChanged);
             // 
             // groupBox3
             // 
@@ -220,7 +220,7 @@ namespace LevitativeTranslotion
             this.button3.TabIndex = 3;
             this.button3.Text = "F2";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.hotKeySlector_KeyUp);
+            this.button3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HotKeySlector_KeyUp);
             // 
             // comboBox5
             // 
@@ -234,7 +234,7 @@ namespace LevitativeTranslotion
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(121, 27);
             this.comboBox5.TabIndex = 2;
-            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBoxChanged);
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChanged);
             // 
             // comboBox6
             // 
@@ -248,7 +248,7 @@ namespace LevitativeTranslotion
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(121, 27);
             this.comboBox6.TabIndex = 2;
-            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBoxChanged);
+            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChanged);
             // 
             // button4
             // 
@@ -259,7 +259,7 @@ namespace LevitativeTranslotion
             this.button4.TabIndex = 5;
             this.button4.Text = "重設";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.Reset_Click);
             // 
             // button5
             // 
@@ -270,7 +270,7 @@ namespace LevitativeTranslotion
             this.button5.TabIndex = 6;
             this.button5.Text = "確定";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.OK_Click);
             // 
             // saveFileDialog1
             // 

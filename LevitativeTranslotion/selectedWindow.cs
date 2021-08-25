@@ -56,15 +56,13 @@ namespace LevitativeTranslotion
             }
         }
 
-        public IntPtr returnHWND()
+        public SetConfig returnHWND()
         {
             IntPtr HWND = IntPtr.Zero;
-            try
-            {
-            HWND = (IntPtr)textBox1.Tag;
-            }
-            catch { }
-            return HWND;
+            if (textBox1.Tag != null)
+                HWND = (IntPtr)textBox1.Tag;
+            SetConfig config = new SetConfig(HWND);
+            return config;
         }
     }
 }

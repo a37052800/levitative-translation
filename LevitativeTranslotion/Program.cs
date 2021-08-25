@@ -26,6 +26,7 @@ namespace LevitativeTranslotion
         private string[] _gSitting = new string[2];
         private bool[] _nDisplay = new bool[3];
         private int _nSearch;
+        private IntPtr _hwnd;
 
         public SetConfig() { }
 
@@ -45,6 +46,12 @@ namespace LevitativeTranslotion
             _nSearch = searchNum;
         }
 
+        public SetConfig(IntPtr hwnd)
+        {
+            _type = "Paste";
+            _hwnd = hwnd;
+        }  //for Paste to Window
+
         public string type { get => _type; }
 
         public string gIn { get => _gSitting[0]; }
@@ -54,6 +61,8 @@ namespace LevitativeTranslotion
         public bool nEnglish { get => _nDisplay[0]; }
         public bool nChinese { get => _nDisplay[0]; }
         public int nSearchNum { get => _nSearch; }
+
+        public IntPtr hwnd { get => _hwnd; }
     }
 
     public class Translator
@@ -70,35 +79,35 @@ namespace LevitativeTranslotion
         }
     }
 
-    public delegate void HotkeyPressEvent();
+    public delegate void HotkeyPressEvent(byte index);
     public class HotkeyThread
     {
         public static bool threadRun = true;
 
         public static event HotkeyPressEvent HotkeyPress;
 
-        private class threadInfo
+        private class ThreadInfo
         {
             public byte index { get; set; }
             public Keys Keys { get; set; }
 
-            public threadInfo(byte index, Keys keys)
+            public ThreadInfo(byte index, Keys keys)
             {
                 this.index = index;
                 this.Keys = keys;
             }
         }
 
-        public static void startNewThread(byte index, Keys keys)
+        public static void StartNewThread(byte index, Keys keys)
         {
-            threadInfo obj = new threadInfo(index, keys);
-            Thread hotkeyThread = new Thread(newHotkey);
+            ThreadInfo obj = new ThreadInfo(index, keys);
+            Thread hotkeyThread = new Thread(NewHotkey);
             hotkeyThread.Start(obj);
         }
 
-        private static void newHotkey(object obj)
+        private static void NewHotkey(object obj)
         {
-            threadInfo info = (threadInfo)obj; 
+            ThreadInfo info = (ThreadInfo)obj; 
             if (winAPI.RegisterHotKey(IntPtr.Zero, 0, 0, (uint)info.Keys))
             {
                 NativeMessage msg = new NativeMessage();
@@ -107,7 +116,7 @@ namespace LevitativeTranslotion
                     winAPI.PeekMessage(ref msg, IntPtr.Zero, 0x0312, 0x0312, 1);
                     if (msg.msg == 0x0312)  //0x0312 = Hotkey Messenge
                     {
-                        HotkeyPress?.Invoke();
+                        HotkeyPress?.Invoke(info.index);
                         msg.msg = 0;
                     }
                 }
