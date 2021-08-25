@@ -29,7 +29,9 @@ namespace LevitativeTranslotion
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -43,6 +45,11 @@ namespace LevitativeTranslotion
             this.label1.Size = new System.Drawing.Size(85, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 2000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // bubble_Google
             // 
@@ -69,5 +76,6 @@ namespace LevitativeTranslotion
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

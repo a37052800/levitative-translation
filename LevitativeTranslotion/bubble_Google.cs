@@ -26,6 +26,32 @@ namespace LevitativeTranslotion
         private void bubble_Google_Load(object sender, EventArgs e)
         {
             this.Size = label1.Size;
+            Point point = new Point();
+            winAPI.GetCursorPos(ref point);
+            point.Y -= this.Height;
+            this.Location = point;
+            timer1.Enabled = true;
+            //ShouldClose();
+        }
+
+        private void ShouldClose()
+        {
+            Point point = new Point();
+            winAPI.GetCursorPos(ref point);
+            Point temp = point;
+            while (winAPI.GetCursorPos(ref point))
+            {
+                if (point != temp)
+                {
+                    timer1.Enabled = true;
+                    break;
+                }
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
