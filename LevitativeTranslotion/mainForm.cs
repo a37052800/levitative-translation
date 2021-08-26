@@ -82,12 +82,24 @@ namespace LevitativeTranslotion
             switch (config.config1.type)
             {
                 case "Google":
-                    bubble_Google bubble = new bubble_Google(Translator.GoogleTranslatedText(config.config1.gIn,
+                    bubble_Google gBubble = new bubble_Google(Translator.GoogleTranslatedText(config.config1.gIn,
                                                                                              config.config1.gOut,
                                                                                              config.text));
-                    bubble.ShowDialog();
+                    gBubble.ShowDialog();
                     break;
                 case "NAER":
+                    bubble_NAER nBubble = new bubble_NAER(Translator.NAERSearch(config.config1.nSource,
+                                                                                config.config1.nEnname,
+                                                                                config.config1.nZhtwname,
+                                                                                config.config1.nSearchNum,
+                                                                                config.text));
+                    nBubble.ShowDialog();
+                    break;
+            }
+            switch (config.config2.type)
+            {
+                case "Paste":
+                    winAPI.SendString(config.config2.hwnd, config.text);
                     break;
             }
         }

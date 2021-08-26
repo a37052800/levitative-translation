@@ -66,5 +66,13 @@ namespace LevitativeTranslotion
             KeyOperate(keys1, (byte)1);
             Thread.Sleep(sleep);
         }
+
+        public static void SendString(IntPtr hwnd, string str)
+        {
+            foreach (char ch in str)
+            {
+                SendMessage(hwnd, 0x0102, (IntPtr)(byte)ch, (IntPtr)1);  //0x0102 = WM_CHAR
+            }
+        }
     }
 }

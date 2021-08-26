@@ -104,8 +104,8 @@ namespace LevitativeTranslotion
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "無",
-            "輸出至文件",
-            "貼上到視窗"});
+            "貼上到視窗",
+            "輸出至文件"});
             this.comboBox2.Location = new System.Drawing.Point(316, 45);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 27);
@@ -187,8 +187,8 @@ namespace LevitativeTranslotion
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
             "無",
-            "輸出至文件",
-            "貼上到視窗"});
+            "貼上到視窗",
+            "輸出至文件"});
             this.comboBox4.Location = new System.Drawing.Point(316, 45);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(121, 27);
@@ -242,8 +242,8 @@ namespace LevitativeTranslotion
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Items.AddRange(new object[] {
             "無",
-            "輸出至文件",
-            "貼上到視窗"});
+            "貼上到視窗",
+            "輸出至文件"});
             this.comboBox6.Location = new System.Drawing.Point(316, 45);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(121, 27);

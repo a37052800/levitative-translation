@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace LevitativeTranslotion
 {
@@ -15,6 +16,15 @@ namespace LevitativeTranslotion
         public bubble_NAER()
         {
             InitializeComponent();
+        }
+        public bubble_NAER(ArrayList[] result)
+        {
+            InitializeComponent();
+            for (int i = 0; i < result[0].Count; i++)
+            {
+                dataGridView1.Rows.Add(result[0][i], result[1][i], result[2][i]);
+            }
+            this.Size = dataGridView1.Size;
         }
     }
 }
