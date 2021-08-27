@@ -99,7 +99,8 @@ namespace LevitativeTranslotion
             switch (config.config2.type)
             {
                 case "Paste":
-                    winAPI.SendString(config.config2.hwnd, config.text);
+                    //winAPI.PostString(config.config2.hwnd, config.text);
+                    winAPI.PostMessage(config.config2.hwnd, 0x0302, IntPtr.Zero, IntPtr.Zero);
                     break;
             }
         }

@@ -92,20 +92,23 @@ namespace LevitativeTranslotion
             if (source)
             {
                 HtmlNodeCollection SoNodes = htmlDocument.DocumentNode.SelectNodes("//td[@class='sourceW']/a");
-                foreach (HtmlNode So in SoNodes)
-                    result[0].Add(So.InnerText);
+                if (SoNodes != null)
+                    foreach (HtmlNode So in SoNodes)
+                        result[0].Add(So.InnerText);
             }
             if (enname)
             {
                 HtmlNodeCollection EnNodes = htmlDocument.DocumentNode.SelectNodes("//td[@class='ennameW']/a");
-                foreach (HtmlNode En in EnNodes)
-                    result[1].Add(En.InnerText);
+                if (EnNodes != null)
+                    foreach (HtmlNode En in EnNodes)
+                        result[1].Add(En.InnerText);
             }
             if (zhtwname)
             {
                 HtmlNodeCollection ZhNodes = htmlDocument.DocumentNode.SelectNodes("//td[@class='zhtwnameW']/a");
-                foreach (HtmlNode Zh in ZhNodes)
-                    result[2].Add(Zh.InnerText);
+                if (ZhNodes != null)
+                    foreach (HtmlNode Zh in ZhNodes)
+                        result[2].Add(Zh.InnerText);
             }
             return result;
         }
@@ -145,12 +148,15 @@ namespace LevitativeTranslotion
                 NativeMessage msg = new NativeMessage();
                 while (threadRun)
                 {
-                    winAPI.PeekMessage(ref msg, IntPtr.Zero, 0x0312, 0x0312, 1);
+                    //winAPI.WaitMessage();
+                    winAPI.GetMessage(ref msg, IntPtr.Zero, 0x0312, 0x0312);
+                    HotkeyPress?.Invoke(info.index);
+                    /*winAPI.PeekMessage(ref msg, IntPtr.Zero, 0x0312, 0x0312, 1);
                     if (msg.msg == 0x0312)  //0x0312 = Hotkey Messenge
                     {
                         HotkeyPress?.Invoke(info.index);
                         msg.msg = 0;
-                    }
+                    }*/
                 }
             }
             else

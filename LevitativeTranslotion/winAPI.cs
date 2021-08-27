@@ -30,6 +30,10 @@ namespace LevitativeTranslotion
         public static extern bool PeekMessage(ref NativeMessage lpMsg, IntPtr hWnd, uint wMsgFilterMin, uint wMsgFilterMax, uint wRemoveMsg);
         [DllImport("user32.dll", EntryPoint = "SendMessage", SetLastError = true)]
         public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+        [DllImport("user32.dll", EntryPoint = "PostMessage", SetLastError = true)]
+        public static extern bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+        [DllImport("user32.dll", EntryPoint = "WaitMessage", SetLastError = true)]
+        public static extern bool WaitMessage();
         [DllImport("user32.dll", EntryPoint = "GetForegroundWindow", SetLastError = true)]
         public static extern IntPtr GetForegroundWindow();
         [DllImport("user32.dll", EntryPoint = "keybd_event", SetLastError = true)]
@@ -59,7 +63,7 @@ namespace LevitativeTranslotion
                     break;
             }
         }
-        public static void KeyOperate(Keys keys1,Keys keys2,int sleep)
+        public static void KeyOperate(Keys keys1, Keys keys2, int sleep)
         {
             KeyOperate(keys1, (byte)0);
             KeyOperate(keys2, (byte)2);
@@ -70,9 +74,12 @@ namespace LevitativeTranslotion
         public static void SendString(IntPtr hwnd, string str)
         {
             foreach (char ch in str)
-            {
-                SendMessage(hwnd, 0x0102, (IntPtr)(byte)ch, (IntPtr)1);  //0x0102 = WM_CHAR
-            }
+                SendMessage(hwnd, 0x0102, (IntPtr)ch, (IntPtr)1);  //0x0102 = WM_CHAR
+        }
+        public static void PostString(IntPtr hwnd, string str)
+        {
+            foreach (char ch in str)
+                PostMessage(hwnd, 0x0102, (IntPtr)ch, IntPtr.Zero);  //0x0102 = WM_CHAR
         }
     }
 }
