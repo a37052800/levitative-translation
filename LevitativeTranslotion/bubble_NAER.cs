@@ -33,11 +33,24 @@ namespace LevitativeTranslotion
 
         private void bubble_NAER_Load(object sender, EventArgs e)
         {
-            Point point = new Point();
-            winAPI.GetCursorPos(ref point);
-            point.Y -= this.Height;
-            this.Location = point;
             this.Width = dataGridView1.Columns[0].Width + dataGridView1.Columns[1].Width + dataGridView1.Columns[2].Width + 21;
+            this.Location = ShowLocation();
+        }
+
+        private Point ShowLocation()
+        {
+            Point location = new Point();
+            winAPI.GetCursorPos(ref location);
+            Rectangle screen = SystemInformation.WorkingArea;
+            if (location.X + this.Width > screen.Width)
+            {
+                location.X = screen.Width - this.Width;
+            }
+            if (location.Y - this.Height > 0)
+            {
+                location.Y -= this.Height;
+            }
+            return location;
         }
     }
 }

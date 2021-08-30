@@ -20,8 +20,9 @@ namespace LevitativeTranslotion
                 winAPI.SetProcessDPIAware();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new mainForm());
-            Application.Run(new bubble_NAER(Translator.NAERSearch(true,true,true,30, "apple")));
+            Application.Run(new mainForm());
+            //Application.Run(new bubble_Google("OK"));
+            //Application.Run(new bubble_NAER(Translator.NAERSearch(true,true,true,30, "apple")));
         }
     }
 

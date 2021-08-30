@@ -45,10 +45,13 @@ namespace LevitativeTranslotion
             this.label1.Size = new System.Drawing.Size(85, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.bubble_Google_Click);
+            this.label1.MouseEnter += new System.EventHandler(this.bubble_Google_MouseEnter);
+            this.label1.MouseLeave += new System.EventHandler(this.bubble_Google_MouseLeave);
             // 
             // timer1
             // 
-            this.timer1.Interval = 2000;
+            this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // bubble_Google
@@ -68,6 +71,9 @@ namespace LevitativeTranslotion
             this.Text = "bubble_Google";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.bubble_Google_Load);
+            this.Click += new System.EventHandler(this.bubble_Google_Click);
+            this.MouseEnter += new System.EventHandler(this.bubble_Google_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.bubble_Google_MouseLeave);
             this.ResumeLayout(false);
             this.PerformLayout();
 

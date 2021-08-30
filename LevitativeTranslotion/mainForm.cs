@@ -155,5 +155,10 @@ namespace LevitativeTranslotion
             Thread.Sleep(100);
             HotkeyThread.threadRun = true;
         }
+
+        private void mainForm_Load(object sender, EventArgs e)
+        {
+            button1.Tag = Keys.F2;
+        }
     }
 }

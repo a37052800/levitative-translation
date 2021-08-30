@@ -290,6 +290,7 @@ namespace LevitativeTranslotion
             this.Controls.Add(this.groupBox1);
             this.Name = "mainForm";
             this.Text = "mainForm";
+            this.Load += new System.EventHandler(this.mainForm_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
