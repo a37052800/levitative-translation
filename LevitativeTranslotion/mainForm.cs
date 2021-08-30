@@ -99,8 +99,9 @@ namespace LevitativeTranslotion
             switch (config.config2.type)
             {
                 case "Paste":
-                    //winAPI.PostString(config.config2.hwnd, config.text);
-                    winAPI.PostMessage(config.config2.hwnd, 0x0302, IntPtr.Zero, IntPtr.Zero);
+                    //winAPI.PostString(config.config2.hwnd, config.text);  //中文編碼錯誤
+                    //issues : Can't paste to Word,Excel,etc.
+                    winAPI.PostMessage(config.config2.hwnd, 0x0302, IntPtr.Zero, IntPtr.Zero);  //0x0302 = WM_PASTE
                     break;
             }
         }

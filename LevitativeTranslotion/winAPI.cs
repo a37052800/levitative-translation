@@ -46,6 +46,8 @@ namespace LevitativeTranslotion
         public static extern int GetWindowTextA(IntPtr hWnd, StringBuilder lptrString, int nMaxCount);
         [DllImport("user32.dll", EntryPoint = "GetAncestor", SetLastError = true)]
         public static extern IntPtr GetAncestor(IntPtr hWnd, uint gaFlags);
+        [DllImport("user32.dll", EntryPoint = "SetProcessDPIAware", SetLastError = true)]
+        public static extern bool SetProcessDPIAware();
 
         public static void KeyOperate(Keys keys, byte type)
         {
@@ -79,7 +81,7 @@ namespace LevitativeTranslotion
         public static void PostString(IntPtr hwnd, string str)
         {
             foreach (char ch in str)
-                PostMessage(hwnd, 0x0102, (IntPtr)ch, IntPtr.Zero);  //0x0102 = WM_CHAR
+                PostMessage(hwnd, 0x0102, (IntPtr)ch, IntPtr.Zero);  //0x0102 = WM_CHAR  0x0109 = WM_UNICHAR
         }
     }
 }

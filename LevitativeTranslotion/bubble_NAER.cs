@@ -24,7 +24,20 @@ namespace LevitativeTranslotion
             {
                 dataGridView1.Rows.Add(result[0][i], result[1][i], result[2][i]);
             }
-            this.Size = dataGridView1.Size;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void bubble_NAER_Load(object sender, EventArgs e)
+        {
+            Point point = new Point();
+            winAPI.GetCursorPos(ref point);
+            point.Y -= this.Height;
+            this.Location = point;
+            this.Width = dataGridView1.Columns[0].Width + dataGridView1.Columns[1].Width + dataGridView1.Columns[2].Width + 21;
         }
     }
 }
