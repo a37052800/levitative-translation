@@ -28,8 +28,10 @@ namespace LevitativeTranslotion
         public static extern int GetMessage(ref NativeMessage lpMsg, IntPtr hWnd, uint wMsgFilterMin, uint wMsgFilterMax);
         [DllImport("user32.dll", EntryPoint = "PeekMessage", SetLastError = true)]
         public static extern bool PeekMessage(ref NativeMessage lpMsg, IntPtr hWnd, uint wMsgFilterMin, uint wMsgFilterMax, uint wRemoveMsg);
-        [DllImport("user32.dll", EntryPoint = "SendMessage", SetLastError = true)]
-        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+        [DllImport("user32.dll", EntryPoint = "SendMessageA", SetLastError = true)]
+        public static extern IntPtr SendMessageA(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+        [DllImport("user32.dll", EntryPoint = "SendMessageW", SetLastError = true)]
+        public static extern IntPtr SendMessageW(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
         [DllImport("user32.dll", EntryPoint = "PostMessage", SetLastError = true)]
         public static extern bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
         [DllImport("user32.dll", EntryPoint = "WaitMessage", SetLastError = true)]
@@ -76,12 +78,7 @@ namespace LevitativeTranslotion
         public static void SendString(IntPtr hwnd, string str)
         {
             foreach (char ch in str)
-                SendMessage(hwnd, 0x0102, (IntPtr)ch, (IntPtr)1);  //0x0102 = WM_CHAR
-        }
-        public static void PostString(IntPtr hwnd, string str)
-        {
-            foreach (char ch in str)
-                PostMessage(hwnd, 0x0102, (IntPtr)ch, IntPtr.Zero);  //0x0102 = WM_CHAR  0x0109 = WM_UNICHAR
+                SendMessageW(hwnd, 0x0286, (IntPtr)ch, IntPtr.Zero);  //0x0286 = WM_IME_CHAR
         }
     }
 }
