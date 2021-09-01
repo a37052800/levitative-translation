@@ -121,8 +121,6 @@ namespace LevitativeTranslotion
     public delegate void HotkeyPressEvent(byte index);
     public class HotkeyThread
     {
-        public static bool threadRun = true;
-
         public static event HotkeyPressEvent HotkeyPress;
 
         private class ThreadInfo
@@ -137,11 +135,13 @@ namespace LevitativeTranslotion
             }
         }
 
-        public static void StartNewThread(byte index, Keys keys)
+        public static Thread StartNewThread(byte index, Keys keys)
         {
             ThreadInfo obj = new ThreadInfo(index, keys);
             Thread hotkeyThread = new Thread(NewHotkey);
             hotkeyThread.Start(obj);
+            
+            return hotkeyThread;
         }
 
         private static void NewHotkey(object obj)
@@ -150,7 +150,7 @@ namespace LevitativeTranslotion
             if (winAPI.RegisterHotKey(IntPtr.Zero, 0, 0, (uint)info.Keys))
             {
                 NativeMessage msg = new NativeMessage();
-                while (threadRun)
+                while (true)
                 {
                     //winAPI.WaitMessage();
                     winAPI.GetMessage(ref msg, IntPtr.Zero, 0x0312, 0x0312);

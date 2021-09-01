@@ -34,6 +34,8 @@ namespace LevitativeTranslotion
         public static extern IntPtr SendMessageW(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
         [DllImport("user32.dll", EntryPoint = "PostMessage", SetLastError = true)]
         public static extern bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+        [DllImport("user32.dll", EntryPoint = "PostThreadMessage", SetLastError = true)]
+        public static extern bool PostThreadMessage(uint threadId, uint msg, IntPtr wParam, IntPtr lParam);
         [DllImport("user32.dll", EntryPoint = "WaitMessage", SetLastError = true)]
         public static extern bool WaitMessage();
         [DllImport("user32.dll", EntryPoint = "GetForegroundWindow", SetLastError = true)]

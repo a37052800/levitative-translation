@@ -12,6 +12,8 @@ namespace LevitativeTranslotion
 {
     public partial class mainForm : Form
     {
+        Thread thread1, thread2, thread3;
+
         public mainForm()
         {
             InitializeComponent();
@@ -71,7 +73,8 @@ namespace LevitativeTranslotion
 
         private void OK_Click(object sender, EventArgs e)
         {
-            HotkeyThread.StartNewThread(1, (Keys)button1.Tag);
+            thread1 = HotkeyThread.StartNewThread(1, (Keys)button1.Tag);
+            this.Hide();
         }
 
         private void Hotkey_Press(byte index)
@@ -149,18 +152,30 @@ namespace LevitativeTranslotion
 
         private void Reset_Click(object sender, EventArgs e)
         {
-            HotkeyThread.threadRun = false;
-            Thread.Sleep(100);
-            HotkeyThread.threadRun = true;
+            thread1.Abort();
+            winAPI.KeyOperate((Keys)button1.Tag, 2);
         }
 
         private void mainForm_Load(object sender, EventArgs e)
         {
             //initial setting
             button1.Tag = Keys.F2;
+            button2.Tag = Keys.F3;
+            button3.Tag = Keys.F4;
         }
 
         private void mainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            notifyIcon1.Visible = false;
+            Environment.Exit(0);
+        }
+
+        private void 設定ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+        }
+
+        private void 結束ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }

@@ -75,14 +75,16 @@ namespace LevitativeTranslotion
             // 設定ToolStripMenuItem
             // 
             this.設定ToolStripMenuItem.Name = "設定ToolStripMenuItem";
-            this.設定ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.設定ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.設定ToolStripMenuItem.Text = "設定";
+            this.設定ToolStripMenuItem.Click += new System.EventHandler(this.設定ToolStripMenuItem_Click);
             // 
             // 結束ToolStripMenuItem
             // 
             this.結束ToolStripMenuItem.Name = "結束ToolStripMenuItem";
-            this.結束ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.結束ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.結束ToolStripMenuItem.Text = "結束";
+            this.結束ToolStripMenuItem.Click += new System.EventHandler(this.結束ToolStripMenuItem_Click);
             // 
             // comboBox1
             // 
@@ -163,7 +165,7 @@ namespace LevitativeTranslotion
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 37);
             this.button2.TabIndex = 3;
-            this.button2.Text = "F2";
+            this.button2.Text = "F3";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HotKeySlector_KeyUp);
             // 
@@ -218,7 +220,7 @@ namespace LevitativeTranslotion
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 37);
             this.button3.TabIndex = 3;
-            this.button3.Text = "F2";
+            this.button3.Text = "F4";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HotKeySlector_KeyUp);
             // 

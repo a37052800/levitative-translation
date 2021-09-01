@@ -50,6 +50,7 @@ namespace LevitativeTranslotion
             this.groupBox1.Controls.Add(this.checkBox3);
             this.groupBox1.Controls.Add(this.checkBox2);
             this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.groupBox1.Location = new System.Drawing.Point(38, 39);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(163, 105);
@@ -64,7 +65,7 @@ namespace LevitativeTranslotion
             this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox3.Location = new System.Drawing.Point(20, 74);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(119, 19);
+            this.checkBox3.Size = new System.Drawing.Size(121, 23);
             this.checkBox3.TabIndex = 1;
             this.checkBox3.Text = "顯示中文詞彙";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -76,7 +77,7 @@ namespace LevitativeTranslotion
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Location = new System.Drawing.Point(20, 49);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(119, 19);
+            this.checkBox2.Size = new System.Drawing.Size(121, 23);
             this.checkBox2.TabIndex = 1;
             this.checkBox2.Text = "顯示英文詞彙";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -88,7 +89,7 @@ namespace LevitativeTranslotion
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Location = new System.Drawing.Point(20, 24);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(119, 19);
+            this.checkBox1.Size = new System.Drawing.Size(121, 23);
             this.checkBox1.TabIndex = 1;
             this.checkBox1.Text = "顯示學術領域";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -96,11 +97,12 @@ namespace LevitativeTranslotion
             // listBox1
             // 
             this.listBox1.Enabled = false;
+            this.listBox1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
+            this.listBox1.ItemHeight = 19;
             this.listBox1.Location = new System.Drawing.Point(38, 213);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(163, 214);
+            this.listBox1.Size = new System.Drawing.Size(163, 213);
             this.listBox1.TabIndex = 1;
             // 
             // button1
@@ -128,29 +130,32 @@ namespace LevitativeTranslotion
             // listBox2
             // 
             this.listBox2.Enabled = false;
+            this.listBox2.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 15;
+            this.listBox2.ItemHeight = 19;
             this.listBox2.Location = new System.Drawing.Point(268, 213);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(163, 214);
+            this.listBox2.Size = new System.Drawing.Size(163, 213);
             this.listBox2.TabIndex = 1;
             // 
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
             this.checkBox4.Enabled = false;
+            this.checkBox4.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.checkBox4.Location = new System.Drawing.Point(38, 177);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(149, 19);
+            this.checkBox4.Size = new System.Drawing.Size(151, 23);
             this.checkBox4.TabIndex = 3;
             this.checkBox4.Text = "啟用特定類別搜尋";
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // numericUpDown1
             // 
+            this.numericUpDown1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.numericUpDown1.Location = new System.Drawing.Point(285, 63);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 25);
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 27);
             this.numericUpDown1.TabIndex = 4;
             this.numericUpDown1.Value = new decimal(new int[] {
             30,
@@ -161,17 +166,19 @@ namespace LevitativeTranslotion
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.Location = new System.Drawing.Point(282, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 15);
+            this.label1.Size = new System.Drawing.Size(99, 19);
             this.label1.TabIndex = 5;
             this.label1.Text = "最大搜尋筆數";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(196, 453);
+            this.button3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button3.Location = new System.Drawing.Point(192, 446);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(85, 30);
             this.button3.TabIndex = 6;
             this.button3.Text = "確定";
             this.button3.UseVisualStyleBackColor = true;
