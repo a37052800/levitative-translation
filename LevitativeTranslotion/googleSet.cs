@@ -31,6 +31,8 @@ namespace LevitativeTranslotion
 
         private void googleSet_Load(object sender, EventArgs e)
         {
+            comboBox1.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 1;
             //load sitting
         }
     }

@@ -50,8 +50,9 @@ namespace LevitativeTranslotion
             this.groupBox1.Controls.Add(this.checkBox3);
             this.groupBox1.Controls.Add(this.checkBox2);
             this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Enabled = false;
             this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox1.Location = new System.Drawing.Point(38, 39);
+            this.groupBox1.Location = new System.Drawing.Point(268, 37);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(163, 105);
             this.groupBox1.TabIndex = 0;
@@ -153,7 +154,7 @@ namespace LevitativeTranslotion
             // numericUpDown1
             // 
             this.numericUpDown1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.numericUpDown1.Location = new System.Drawing.Point(285, 63);
+            this.numericUpDown1.Location = new System.Drawing.Point(37, 61);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 27);
             this.numericUpDown1.TabIndex = 4;
@@ -167,7 +168,7 @@ namespace LevitativeTranslotion
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(282, 39);
+            this.label1.Location = new System.Drawing.Point(34, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 19);
             this.label1.TabIndex = 5;
@@ -176,7 +177,7 @@ namespace LevitativeTranslotion
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(192, 446);
+            this.button3.Location = new System.Drawing.Point(48, 111);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(85, 30);
             this.button3.TabIndex = 6;
@@ -187,7 +188,7 @@ namespace LevitativeTranslotion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 488);
+            this.ClientSize = new System.Drawing.Size(187, 166);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numericUpDown1);
@@ -197,7 +198,14 @@ namespace LevitativeTranslotion
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NAERSet";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "NAERSet";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -73,7 +73,21 @@ namespace LevitativeTranslotion
 
         private void OK_Click(object sender, EventArgs e)
         {
-            thread1 = HotkeyThread.StartNewThread(1, (Keys)button1.Tag);
+            if ((comboBox1.Tag != null) || (comboBox2.Tag != null))
+                thread1 = HotkeyThread.StartNewThread(1, (Keys)button1.Tag);
+            if ((comboBox3.Tag != null) || (comboBox4.Tag != null))
+                thread2 = HotkeyThread.StartNewThread(2, (Keys)button2.Tag);
+            if ((comboBox5.Tag != null) || (comboBox6.Tag != null))
+                thread3 = HotkeyThread.StartNewThread(3, (Keys)button3.Tag);
+            button1.Enabled = false;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            comboBox1.Enabled = false;
+            comboBox2.Enabled = false;
+            comboBox3.Enabled = false;
+            comboBox4.Enabled = false;
+            comboBox5.Enabled = false;
+            comboBox6.Enabled = false;
             this.Hide();
         }
 
@@ -152,8 +166,30 @@ namespace LevitativeTranslotion
 
         private void Reset_Click(object sender, EventArgs e)
         {
-            thread1.Abort();
-            winAPI.KeyOperate((Keys)button1.Tag, 2);
+            if (thread1 != null)
+            {
+                thread1.Abort();
+                winAPI.KeyOperate((Keys)button1.Tag, 2);
+            }
+            if (thread2 != null)
+            {
+                thread2.Abort();
+                winAPI.KeyOperate((Keys)button2.Tag, 2);
+            }
+            if (thread3 != null)
+            {
+                thread3.Abort();
+                winAPI.KeyOperate((Keys)button3.Tag, 2);
+            }
+            button1.Enabled = true;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            comboBox1.Enabled = true;
+            comboBox2.Enabled = true;
+            comboBox3.Enabled = true;
+            comboBox4.Enabled = true;
+            comboBox5.Enabled = true;
+            comboBox6.Enabled = true;
         }
 
         private void mainForm_Load(object sender, EventArgs e)
@@ -162,9 +198,25 @@ namespace LevitativeTranslotion
             button1.Tag = Keys.F2;
             button2.Tag = Keys.F3;
             button3.Tag = Keys.F4;
+            comboBox1.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 0;
+            comboBox3.SelectedIndex = 0;
+            comboBox4.SelectedIndex = 0;
+            comboBox5.SelectedIndex = 0;
+            comboBox6.SelectedIndex = 0;
+        }
+
+        private void 結束ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseForm();
         }
 
         private void mainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CloseForm();
+        }
+
+        private void CloseForm()
         {
             notifyIcon1.Visible = false;
             Environment.Exit(0);
@@ -173,11 +225,6 @@ namespace LevitativeTranslotion
         private void 設定ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Show();
-        }
-
-        private void 結束ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(0);
         }
     }
 }
