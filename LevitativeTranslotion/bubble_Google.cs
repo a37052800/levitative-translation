@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace LevitativeTranslotion
 {
@@ -28,6 +29,10 @@ namespace LevitativeTranslotion
         {
             this.Size = label1.Size + this.Padding.Size;
             this.Location = ShowLocation();
+            /*int rad = 28;
+            IntPtr rgnHwnd = winAPI.CreateRoundRectRgn(-1, -1, this.Width + 2, this.Height + 2, rad, rad);
+            winAPI.SetWindowRgn(this.Handle, rgnHwnd, true);
+            winAPI.DeleteObject(rgnHwnd);*/
         }
 
         private Point ShowLocation()
@@ -56,6 +61,28 @@ namespace LevitativeTranslotion
         private void Close(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+        }
+
+        private void bubble_Google_Paint(object sender, PaintEventArgs e)
+        {
+            /*e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            GraphicsPath gPath = new GraphicsPath();
+            int dia = 49;
+            gPath.AddArc(-2, -2, dia, dia, 180, 90);
+            gPath.AddArc(this.Width - dia +1, -2, dia, dia, 270, 90);
+            gPath.AddArc(this.Width - dia +1, this.Height +1 - dia, dia, dia, 0, 90);
+            gPath.AddArc(-2, this.Height +1 - dia, dia, dia, 90, 90);
+            gPath.CloseAllFigures();
+            this.Region = new Region(gPath);*/
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            GraphicsPath gPath = new GraphicsPath();
+            int dia = 16;
+            gPath.AddArc(0, 0, dia, dia, 182, 86);
+            gPath.AddArc(this.Width - dia, 0, dia, dia, 272, 86);
+            gPath.AddArc(this.Width - dia, this.Height - dia, dia, dia, 2, 86);
+            gPath.AddArc(0, this.Height - dia, dia, dia, 92, 86);
+            gPath.CloseAllFigures();
+            this.Region = new Region(gPath);
         }
     }
 }

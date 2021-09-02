@@ -72,6 +72,7 @@ namespace LevitativeTranslotion
             this.Deactivate += new System.EventHandler(this.Close);
             this.Load += new System.EventHandler(this.bubble_Google_Load);
             this.Click += new System.EventHandler(this.Close);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.bubble_Google_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
 

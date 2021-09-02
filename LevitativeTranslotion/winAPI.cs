@@ -52,6 +52,12 @@ namespace LevitativeTranslotion
         public static extern IntPtr GetAncestor(IntPtr hWnd, uint gaFlags);
         [DllImport("user32.dll", EntryPoint = "SetProcessDPIAware", SetLastError = true)]
         public static extern bool SetProcessDPIAware();
+        [DllImport("gdi32.dll", EntryPoint = "CreateRoundRectRgn", SetLastError = true)]
+        public static extern IntPtr CreateRoundRectRgn(int x1, int y1, int x2, int y2, int cx, int cy);
+        [DllImport("user32.dll", EntryPoint = "SetWindowRgn", SetLastError = true)]
+        public static extern int SetWindowRgn(IntPtr hWnd, IntPtr hRgn, bool bRedraw);
+        [DllImport("gdi32.dll", EntryPoint = "DeleteObject", SetLastError = true)]
+        public static extern bool DeleteObject(IntPtr hObject);
 
         public static void KeyOperate(Keys keys, byte type)
         {
