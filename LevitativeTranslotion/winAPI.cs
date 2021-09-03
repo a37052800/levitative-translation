@@ -18,6 +18,13 @@ namespace LevitativeTranslotion
         public uint time;
         public System.Drawing.Point p;
     }
+    public struct MARGINS
+    {
+        public int leftWidth;
+        public int rightWidth;
+        public int topHeight;
+        public int bottomHeight;
+    }
     class winAPI
     {
         [DllImport("user32.dll", EntryPoint = "FindWindow", SetLastError = true)]
@@ -58,6 +65,14 @@ namespace LevitativeTranslotion
         public static extern int SetWindowRgn(IntPtr hWnd, IntPtr hRgn, bool bRedraw);
         [DllImport("gdi32.dll", EntryPoint = "DeleteObject", SetLastError = true)]
         public static extern bool DeleteObject(IntPtr hObject);
+        [DllImport("user32.dll", EntryPoint = "GetClassLong", SetLastError = true)]
+        public static extern IntPtr GetClassLongPtr32(IntPtr hWnd, int nIndex);
+        [DllImport("user32.dll", EntryPoint = "SetClassLong", SetLastError = true)]
+        public static extern IntPtr SetClassLongPtr32(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
+        [DllImport("dwmapi.dll", EntryPoint = "DwmExtendFrameIntoClientArea", SetLastError = true)]
+        public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS margins);
+        [DllImport("dwmapi.dll", EntryPoint = "DwmSetWindowAttribute", SetLastError = true)]
+        public static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
 
         public static void KeyOperate(Keys keys, byte type)
         {

@@ -23,16 +23,35 @@ namespace LevitativeTranslotion
         {
             InitializeComponent();
             label1.Text = str;
+            this.Text = string.Empty;
+            this.ControlBox = false;
         }
 
         private void bubble_Google_Load(object sender, EventArgs e)
         {
             this.Size = label1.Size + this.Padding.Size;
             this.Location = ShowLocation();
-            /*int rad = 28;
-            IntPtr rgnHwnd = winAPI.CreateRoundRectRgn(-1, -1, this.Width + 2, this.Height + 2, rad, rad);
-            winAPI.SetWindowRgn(this.Handle, rgnHwnd, true);
-            winAPI.DeleteObject(rgnHwnd);*/
+
+            //Form Shadow Func
+            int value = 2;
+            winAPI.DwmSetWindowAttribute(this.Handle, 2, ref value, 8);
+            MARGINS marg = new MARGINS()
+            {
+                bottomHeight = 1,
+                topHeight = 0,
+                leftWidth = 0,
+                rightWidth = 0
+            };
+            winAPI.DwmExtendFrameIntoClientArea(this.Handle, ref marg);
+
+            ////Form Shadow Func
+            //winAPI.SetClassLongPtr32(this.Handle, -26, (IntPtr)((int)winAPI.GetClassLongPtr32(this.Handle, -26) | 0x00020000));
+
+            ////RoundForm Func
+            //int rad = 50;
+            //IntPtr rgnHwnd = winAPI.CreateRoundRectRgn(-1, -1, this.Width + 2, this.Height + 2, rad, rad);
+            //winAPI.SetWindowRgn(this.Handle, rgnHwnd, true);
+            //winAPI.DeleteObject(rgnHwnd);
         }
 
         private Point ShowLocation()
@@ -65,24 +84,21 @@ namespace LevitativeTranslotion
 
         private void bubble_Google_Paint(object sender, PaintEventArgs e)
         {
-            /*e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            GraphicsPath gPath = new GraphicsPath();
-            int dia = 49;
-            gPath.AddArc(-2, -2, dia, dia, 180, 90);
-            gPath.AddArc(this.Width - dia +1, -2, dia, dia, 270, 90);
-            gPath.AddArc(this.Width - dia +1, this.Height +1 - dia, dia, dia, 0, 90);
-            gPath.AddArc(-2, this.Height +1 - dia, dia, dia, 90, 90);
-            gPath.CloseAllFigures();
-            this.Region = new Region(gPath);*/
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            GraphicsPath gPath = new GraphicsPath();
-            int dia = 16;
-            gPath.AddArc(0, 0, dia, dia, 182, 86);
-            gPath.AddArc(this.Width - dia, 0, dia, dia, 272, 86);
-            gPath.AddArc(this.Width - dia, this.Height - dia, dia, dia, 2, 86);
-            gPath.AddArc(0, this.Height - dia, dia, dia, 92, 86);
-            gPath.CloseAllFigures();
-            this.Region = new Region(gPath);
+            //// Form Round
+            //e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            //GraphicsPath gPath = new GraphicsPath();
+            //int dia = 28;
+            //gPath.AddArc(0, 0, dia, dia, 182, 86);
+            //gPath.AddArc(this.Width - dia, 0, dia, dia, 272, 86);
+            //gPath.AddArc(this.Width - dia, this.Height - dia, dia, dia, 2, 86);
+            //gPath.AddArc(0, this.Height - dia, dia, dia, 92, 86);
+            //gPath.CloseAllFigures();
+            //this.Region = new Region(gPath);
+
+            //Pen pen = new Pen(Color.White, 3);
+            //pen.LineJoin = LineJoin.Round;
+            //e.Graphics.DrawPath(pen, gPath);
+            //pen.Dispose();
         }
     }
 }
