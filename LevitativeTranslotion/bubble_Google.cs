@@ -72,7 +72,7 @@ namespace LevitativeTranslotion
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.Opacity -= Math.Pow(1.1 - this.Opacity, 0.5);
+            this.Opacity -= Math.Pow(1 - this.Opacity, 0.5);
             if (this.Opacity < 0.05)
                 this.Close();
         }

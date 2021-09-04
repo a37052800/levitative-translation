@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.IO;
 
 namespace LevitativeTranslotion
 {
@@ -54,7 +55,9 @@ namespace LevitativeTranslotion
                 case "輸出至文件":
                     if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                     {
-
+                        FileStream file = (FileStream)saveFileDialog1.OpenFile();
+                        SetConfig config = new SetConfig(file);
+                        comboBox.Tag = config;
                     }
                     else comboBox.Text = "無";
                     break;
@@ -117,6 +120,10 @@ namespace LevitativeTranslotion
             {
                 case "Paste":
                     winAPI.SendString(config.config2.hwnd, config.text);
+                    break;
+                case "Export":
+                    byte[] text = Encoding.UTF8.GetBytes(config.text + '\n');
+                    config.config2.file.Write(text, 0, text.Length);
                     break;
             }
         }

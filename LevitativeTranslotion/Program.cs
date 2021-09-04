@@ -8,6 +8,7 @@ using System.Threading;
 using System.Net;
 using System.Collections;
 using HtmlAgilityPack;
+using System.IO;
 
 namespace LevitativeTranslotion
 {
@@ -33,6 +34,7 @@ namespace LevitativeTranslotion
         private bool[] _nDisplay = new bool[3];
         private int _nSearch;
         private IntPtr _hwnd;
+        private FileStream _file;
 
         public SetConfig() { }
 
@@ -58,6 +60,12 @@ namespace LevitativeTranslotion
             _hwnd = hwnd;
         }  //for Paste to Window
 
+        public SetConfig(FileStream file) //for Export to file
+        {
+            _type = "Export";
+            _file = file;
+        }
+
         public string type { get => _type; }
 
         public string gIn { get => _gSitting[0]; }
@@ -69,6 +77,8 @@ namespace LevitativeTranslotion
         public int nSearchNum { get => _nSearch; }
 
         public IntPtr hwnd { get => _hwnd; }
+
+        public FileStream file { get => _file; }
     }
 
     public class Translator
