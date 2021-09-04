@@ -40,7 +40,7 @@ namespace LevitativeTranslotion
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(10, 10);
+            this.label1.Location = new System.Drawing.Point(10, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 22);
             this.label1.TabIndex = 0;
@@ -68,8 +68,8 @@ namespace LevitativeTranslotion
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "bubble_Google";
-            this.Opacity = 0.98D;
-            this.Padding = new System.Windows.Forms.Padding(10, 10, 10, 8);
+            this.Opacity = 0.9D;
+            this.Padding = new System.Windows.Forms.Padding(10, 8, 10, 6);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
