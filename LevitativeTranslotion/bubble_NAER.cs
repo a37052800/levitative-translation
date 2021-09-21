@@ -20,9 +20,6 @@ namespace LevitativeTranslotion
         public bubble_NAER(ArrayList[] result)
         {
             InitializeComponent();
-            dataGridView1.Columns.Add("Source", "學術領域/出處");
-            dataGridView1.Columns.Add("EnName", "英文詞彙");
-            dataGridView1.Columns.Add("ZhName", "中文詞彙");
             for (int i = 0; i < result[0].Count; i++)
             {
                 dataGridView1.Rows.Add(result[0][i], result[1][i], result[2][i]);
@@ -38,17 +35,6 @@ namespace LevitativeTranslotion
         {
             this.Width = dataGridView1.Columns[0].Width + dataGridView1.Columns[1].Width + dataGridView1.Columns[2].Width + 21;
             this.Location = ShowLocation();
-            //Form Shadow Func
-            int value = 2;
-            winAPI.DwmSetWindowAttribute(this.Handle, 2, ref value, 8);
-            MARGINS marg = new MARGINS()
-            {
-                bottomHeight = 1,
-                topHeight = 0,
-                leftWidth = 0,
-                rightWidth = 0
-            };
-            winAPI.DwmExtendFrameIntoClientArea(this.Handle, ref marg);
         }
 
         private Point ShowLocation()
