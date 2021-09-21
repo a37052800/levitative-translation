@@ -179,6 +179,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="1x\hotkey_click.png" />
+    <None Include="1x\hotkey_enter.png" />
+    <None Include="1x\hotkey_normal.png" />
+    <None Include="1x\minimize_click.png" />
+    <None Include="1x\minimize_enter.png" />
+    <None Include="1x\minimize_normal.png" />
+    <None Include="1x\more_enter.png" />
+    <None Include="1x\more_normal.png" />
+    <None Include="1x\switch_off_enter.png" />
+    <None Include="1x\switch_off_normal.png" />
+    <None Include="1x\switch_on_enter.png" />
+    <None Include="1x\switch_on_normal.png" />
+    <None Include="1x\trancore_click.png" />
+    <None Include="1x\trancore_enter.png" />
+    <None Include="1x\trancore_normal.png" />
     <Content Include="aim.bmp" />
     <EmbeddedResource Include="aim.cur" />
     <Content Include="icon.ico" />

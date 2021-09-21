@@ -35,25 +35,13 @@ namespace LevitativeTranslotion
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.結束ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.Trancore = new System.Windows.Forms.Button();
+            this.Hotkey = new System.Windows.Forms.Button();
+            this.Minimize = new System.Windows.Forms.Button();
+            this.Switch = new System.Windows.Forms.Button();
+            this.More = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon1
@@ -90,220 +78,134 @@ namespace LevitativeTranslotion
             this.結束ToolStripMenuItem.Text = "結束";
             this.結束ToolStripMenuItem.Click += new System.EventHandler(this.結束ToolStripMenuItem_Click);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "無",
-            "Google",
-            "NAER"});
-            this.comboBox1.Location = new System.Drawing.Point(167, 45);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 27);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChanged);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "無",
-            "貼上到視窗",
-            "輸出至文件"});
-            this.comboBox2.Location = new System.Drawing.Point(316, 45);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 27);
-            this.comboBox2.TabIndex = 2;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChanged);
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(24, 37);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 37);
-            this.button1.TabIndex = 3;
-            this.button1.Tag = "";
-            this.button1.Text = "F2";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HotKeySlector_KeyUp);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox1.Location = new System.Drawing.Point(61, 35);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(468, 105);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "快捷鍵1";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.comboBox3);
-            this.groupBox2.Controls.Add(this.comboBox4);
-            this.groupBox2.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox2.Location = new System.Drawing.Point(61, 164);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(468, 105);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "快捷鍵3";
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(24, 37);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 37);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "F3";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HotKeySlector_KeyUp);
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "無",
-            "Google",
-            "NAER"});
-            this.comboBox3.Location = new System.Drawing.Point(167, 45);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 27);
-            this.comboBox3.TabIndex = 2;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChanged);
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "無",
-            "貼上到視窗",
-            "輸出至文件"});
-            this.comboBox4.Location = new System.Drawing.Point(316, 45);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 27);
-            this.comboBox4.TabIndex = 2;
-            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChanged);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.comboBox5);
-            this.groupBox3.Controls.Add(this.comboBox6);
-            this.groupBox3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox3.Location = new System.Drawing.Point(61, 295);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(468, 105);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "快捷鍵3";
-            // 
-            // button3
-            // 
-            this.button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(24, 37);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 37);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "F4";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HotKeySlector_KeyUp);
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
-            "無",
-            "Google",
-            "NAER"});
-            this.comboBox5.Location = new System.Drawing.Point(167, 45);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 27);
-            this.comboBox5.TabIndex = 2;
-            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChanged);
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Items.AddRange(new object[] {
-            "無",
-            "貼上到視窗",
-            "輸出至文件"});
-            this.comboBox6.Location = new System.Drawing.Point(316, 45);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 27);
-            this.comboBox6.TabIndex = 2;
-            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChanged);
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(163, 441);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(85, 30);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "重設";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Reset_Click);
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button5.Location = new System.Drawing.Point(359, 441);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(85, 30);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "確定";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.OK_Click);
-            // 
             // saveFileDialog1
             // 
             this.saveFileDialog1.DefaultExt = "csv";
             this.saveFileDialog1.FileName = "單字本.csv";
             this.saveFileDialog1.Filter = "逗點分隔檔案|*.csv";
             // 
+            // Trancore
+            // 
+            this.Trancore.BackgroundImage = global::LevitativeTranslotion.Properties.Resources.trancore_normal;
+            this.Trancore.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Trancore.FlatAppearance.BorderSize = 0;
+            this.Trancore.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.Trancore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.Trancore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Trancore.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Trancore.Location = new System.Drawing.Point(60, 194);
+            this.Trancore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Trancore.Name = "Trancore";
+            this.Trancore.Size = new System.Drawing.Size(317, 34);
+            this.Trancore.TabIndex = 1;
+            this.Trancore.UseVisualStyleBackColor = true;
+            this.Trancore.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Trancore_MouseDown);
+            this.Trancore.MouseEnter += new System.EventHandler(this.Trancore_MouseEnter);
+            this.Trancore.MouseLeave += new System.EventHandler(this.Trancore_MouseLeave);
+            this.Trancore.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Trancore_MouseUp);
+            // 
+            // Hotkey
+            // 
+            this.Hotkey.BackgroundImage = global::LevitativeTranslotion.Properties.Resources.hotkey_normal;
+            this.Hotkey.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Hotkey.FlatAppearance.BorderSize = 0;
+            this.Hotkey.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.Hotkey.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.Hotkey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Hotkey.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Hotkey.Location = new System.Drawing.Point(163, 103);
+            this.Hotkey.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Hotkey.Name = "Hotkey";
+            this.Hotkey.Size = new System.Drawing.Size(111, 49);
+            this.Hotkey.TabIndex = 1;
+            this.Hotkey.UseVisualStyleBackColor = true;
+            this.Hotkey.Enter += new System.EventHandler(this.Hotkey_Enter);
+            this.Hotkey.Leave += new System.EventHandler(this.Hotkey_Leave);
+            this.Hotkey.MouseEnter += new System.EventHandler(this.Hotkey_MouseEnter);
+            this.Hotkey.MouseLeave += new System.EventHandler(this.Hotkey_MouseLeave);
+            // 
+            // Minimize
+            // 
+            this.Minimize.BackgroundImage = global::LevitativeTranslotion.Properties.Resources.minimize_normal;
+            this.Minimize.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Minimize.FlatAppearance.BorderSize = 0;
+            this.Minimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.Minimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Minimize.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Minimize.Location = new System.Drawing.Point(398, 12);
+            this.Minimize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Minimize.Name = "Minimize";
+            this.Minimize.Size = new System.Drawing.Size(32, 32);
+            this.Minimize.TabIndex = 1;
+            this.Minimize.UseVisualStyleBackColor = true;
+            this.Minimize.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Minimize_MouseDown);
+            this.Minimize.MouseEnter += new System.EventHandler(this.Minimize_MouseEnter);
+            this.Minimize.MouseLeave += new System.EventHandler(this.Minimize_MouseLeave);
+            this.Minimize.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Minimize_MouseUp);
+            // 
+            // Switch
+            // 
+            this.Switch.BackgroundImage = global::LevitativeTranslotion.Properties.Resources.switch_off_normal;
+            this.Switch.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Switch.FlatAppearance.BorderSize = 0;
+            this.Switch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.Switch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.Switch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Switch.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Switch.Location = new System.Drawing.Point(37, 13);
+            this.Switch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Switch.Name = "Switch";
+            this.Switch.Size = new System.Drawing.Size(71, 30);
+            this.Switch.TabIndex = 1;
+            this.Switch.UseVisualStyleBackColor = true;
+            this.Switch.Click += new System.EventHandler(this.Switch_Click);
+            this.Switch.MouseEnter += new System.EventHandler(this.Switch_MouseEnter);
+            this.Switch.MouseLeave += new System.EventHandler(this.Switch_MouseLeave);
+            // 
+            // More
+            // 
+            this.More.BackgroundImage = global::LevitativeTranslotion.Properties.Resources.more_normal;
+            this.More.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.More.FlatAppearance.BorderSize = 0;
+            this.More.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.More.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.More.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.More.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.More.Location = new System.Drawing.Point(14, 19);
+            this.More.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.More.Name = "More";
+            this.More.Size = new System.Drawing.Size(7, 19);
+            this.More.TabIndex = 1;
+            this.More.UseVisualStyleBackColor = true;
+            this.More.MouseEnter += new System.EventHandler(this.More_MouseEnter);
+            this.More.MouseLeave += new System.EventHandler(this.More_MouseLeave);
+            // 
             // mainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 508);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(441, 276);
+            this.Controls.Add(this.Trancore);
+            this.Controls.Add(this.Hotkey);
+            this.Controls.Add(this.Minimize);
+            this.Controls.Add(this.Switch);
+            this.Controls.Add(this.More);
+            this.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "mainForm";
+            this.Opacity = 0.96D;
             this.ShowIcon = false;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.mainForm_FormClosed);
             this.Load += new System.EventHandler(this.mainForm_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.mainForm_Paint);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mainForm_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mainForm_MouseUp);
             this.contextMenuStrip1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -314,20 +216,11 @@ namespace LevitativeTranslotion
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 設定ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 結束ToolStripMenuItem;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button More;
+        private System.Windows.Forms.Button Switch;
+        private System.Windows.Forms.Button Minimize;
+        private System.Windows.Forms.Button Hotkey;
+        private System.Windows.Forms.Button Trancore;
     }
 }

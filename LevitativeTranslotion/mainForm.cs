@@ -13,7 +13,8 @@ namespace LevitativeTranslotion
 {
     public partial class mainForm : Form
     {
-        Thread thread1, thread2, thread3;
+        private Thread thread;
+        private bool opened = false;
 
         public mainForm()
         {
@@ -73,26 +74,6 @@ namespace LevitativeTranslotion
                 comboBox.Tag = null;
         }
 
-        private void OK_Click(object sender, EventArgs e)
-        {
-            if ((comboBox1.Tag != null) || (comboBox2.Tag != null))
-                thread1 = HotkeyThread.StartNewThread(1, (Keys)button1.Tag);
-            if ((comboBox3.Tag != null) || (comboBox4.Tag != null))
-                thread2 = HotkeyThread.StartNewThread(2, (Keys)button2.Tag);
-            if ((comboBox5.Tag != null) || (comboBox6.Tag != null))
-                thread3 = HotkeyThread.StartNewThread(3, (Keys)button3.Tag);
-            button1.Enabled = false;
-            button2.Enabled = false;
-            button3.Enabled = false;
-            comboBox1.Enabled = false;
-            comboBox2.Enabled = false;
-            comboBox3.Enabled = false;
-            comboBox4.Enabled = false;
-            comboBox5.Enabled = false;
-            comboBox6.Enabled = false;
-            this.Hide();
-        }
-
         private void Hotkey_Press(byte index)
         {
             winAPI.KeyOperate(Keys.ControlKey, Keys.C, 100);
@@ -142,27 +123,27 @@ namespace LevitativeTranslotion
         {
             SetConfig set1 = new SetConfig();
             SetConfig set2 = new SetConfig();
-            switch (index)
-            {
-                case 1:
-                    if (comboBox1.Tag != null)
-                        set1 = (SetConfig)comboBox1.Tag;
-                    if (comboBox2.Tag != null)
-                        set2 = (SetConfig)comboBox2.Tag;
-                    break;
-                case 2:
-                    if (comboBox3.Tag != null)
-                        set1 = (SetConfig)comboBox3.Tag;
-                    if (comboBox4.Tag != null)
-                        set2 = (SetConfig)comboBox4.Tag;
-                    break;
-                case 3:
-                    if (comboBox5.Tag != null)
-                        set1 = (SetConfig)comboBox5.Tag;
-                    if (comboBox6.Tag != null)
-                        set2 = (SetConfig)comboBox6.Tag;
-                    break;
-            }
+            //switch (index)
+            //{
+            //    case 1:
+            //        if (comboBox1.Tag != null)
+            //            set1 = (SetConfig)comboBox1.Tag;
+            //        if (comboBox2.Tag != null)
+            //            set2 = (SetConfig)comboBox2.Tag;
+            //        break;
+            //    case 2:
+            //        if (comboBox3.Tag != null)
+            //            set1 = (SetConfig)comboBox3.Tag;
+            //        if (comboBox4.Tag != null)
+            //            set2 = (SetConfig)comboBox4.Tag;
+            //        break;
+            //    case 3:
+            //        if (comboBox5.Tag != null)
+            //            set1 = (SetConfig)comboBox5.Tag;
+            //        if (comboBox6.Tag != null)
+            //            set2 = (SetConfig)comboBox6.Tag;
+            //        break;
+            //}
             Config config = new Config
             {
                 text = Clipboard.GetText(),
@@ -174,44 +155,28 @@ namespace LevitativeTranslotion
 
         private void Reset_Click(object sender, EventArgs e)
         {
-            if (thread1 != null)
+            if (thread != null)
             {
-                thread1.Abort();
-                winAPI.KeyOperate((Keys)button1.Tag, 2);
+                thread.Abort();
+                winAPI.KeyOperate((Keys)More.Tag, 2);
             }
-            if (thread2 != null)
-            {
-                thread2.Abort();
-                winAPI.KeyOperate((Keys)button2.Tag, 2);
-            }
-            if (thread3 != null)
-            {
-                thread3.Abort();
-                winAPI.KeyOperate((Keys)button3.Tag, 2);
-            }
-            button1.Enabled = true;
-            button2.Enabled = true;
-            button3.Enabled = true;
-            comboBox1.Enabled = true;
-            comboBox2.Enabled = true;
-            comboBox3.Enabled = true;
-            comboBox4.Enabled = true;
-            comboBox5.Enabled = true;
-            comboBox6.Enabled = true;
         }
 
         private void mainForm_Load(object sender, EventArgs e)
         {
+            //Form Shadow Func
+            int value = 2;
+            winAPI.DwmSetWindowAttribute(this.Handle, 2, ref value, 8);
+            MARGINS marg = new MARGINS()
+            {
+                bottomHeight = 1,
+                topHeight = 0,
+                leftWidth = 0,
+                rightWidth = 0
+            };
+            winAPI.DwmExtendFrameIntoClientArea(this.Handle, ref marg);
+
             //initial setting
-            button1.Tag = Keys.F2;
-            button2.Tag = Keys.F3;
-            button3.Tag = Keys.F4;
-            comboBox1.SelectedIndex = 0;
-            comboBox2.SelectedIndex = 0;
-            comboBox3.SelectedIndex = 0;
-            comboBox4.SelectedIndex = 0;
-            comboBox5.SelectedIndex = 0;
-            comboBox6.SelectedIndex = 0;
         }
 
         private void 結束ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -233,6 +198,138 @@ namespace LevitativeTranslotion
         private void 設定ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Show();
+        }
+
+        //Item interaction
+        private void More_MouseEnter(object sender, EventArgs e)
+        {
+            More.BackgroundImage = Properties.Resources.more_enter;
+        }
+
+        private void More_MouseLeave(object sender, EventArgs e)
+        {
+            More.BackgroundImage = Properties.Resources.more_normal;
+        }
+
+        private void Switch_MouseEnter(object sender, EventArgs e)
+        {
+            if (opened)
+                Switch.BackgroundImage = Properties.Resources.switch_on_enter;
+            else
+                Switch.BackgroundImage = Properties.Resources.switch_off_enter;
+        }
+
+        private void Switch_MouseLeave(object sender, EventArgs e)
+        {
+            if (opened)
+                Switch.BackgroundImage = Properties.Resources.switch_on_normal;
+            else
+                Switch.BackgroundImage = Properties.Resources.switch_off_normal;
+        }
+
+        private void Switch_Click(object sender, EventArgs e)
+        {
+            opened = !opened;
+            if (opened)
+                Switch.BackgroundImage = Properties.Resources.switch_on_enter;
+            else
+                Switch.BackgroundImage = Properties.Resources.switch_off_enter;
+        }
+
+        private void Minimize_MouseEnter(object sender, EventArgs e)
+        {
+            Minimize.BackgroundImage = Properties.Resources.minimize_enter;
+        }
+
+        private void Minimize_MouseLeave(object sender, EventArgs e)
+        {
+            Minimize.BackgroundImage = Properties.Resources.minimize_normal;
+        }
+
+        private void Minimize_MouseDown(object sender, MouseEventArgs e)
+        {
+            Minimize.BackgroundImage = Properties.Resources.minimize_click;
+        }
+
+        private void Minimize_MouseUp(object sender, MouseEventArgs e)
+        {
+            Minimize.BackgroundImage = Properties.Resources.minimize_enter;
+        }
+
+        private void Hotkey_MouseEnter(object sender, EventArgs e)
+        {
+            if (!Hotkey.Focused)
+                Hotkey.BackgroundImage = Properties.Resources.hotkey_enter;
+        }
+
+        private void Hotkey_MouseLeave(object sender, EventArgs e)
+        {
+            if (!Hotkey.Focused)
+                Hotkey.BackgroundImage = Properties.Resources.hotkey_normal;
+        }
+
+        private void Hotkey_Enter(object sender, EventArgs e)
+        {
+            Hotkey.BackgroundImage = Properties.Resources.hotkey_click;
+        }
+
+        private void Hotkey_Leave(object sender, EventArgs e)
+        {
+            Hotkey.BackgroundImage = Properties.Resources.hotkey_normal;
+        }
+
+        private void Trancore_MouseEnter(object sender, EventArgs e)
+        {
+            Trancore.BackgroundImage = Properties.Resources.trancore_enter;
+        }
+
+        private void Trancore_MouseLeave(object sender, EventArgs e)
+        {
+            Trancore.BackgroundImage = Properties.Resources.trancore_normal;
+        }
+
+        private void Trancore_MouseDown(object sender, MouseEventArgs e)
+        {
+            Trancore.BackgroundImage = Properties.Resources.trancore_click;
+        }
+
+        private void Trancore_MouseUp(object sender, MouseEventArgs e)
+        {
+            Trancore.BackgroundImage = Properties.Resources.trancore_enter;
+        }
+        //Form move
+        private bool Drag;
+        private int MouseX;
+        private int MouseY;
+
+        private void mainForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            Drag = true;
+            MouseX = Cursor.Position.X - this.Left;
+            MouseY = Cursor.Position.Y - this.Top;
+        }
+
+        private void mainForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (Drag)
+            {
+                this.Top = Cursor.Position.Y - MouseY;
+                this.Left = Cursor.Position.X - MouseX;
+            }
+        }
+
+        private void mainForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            Drag = false;
+        }
+
+        private void mainForm_Paint(object sender, PaintEventArgs e)
+        {
+            Pen pen = new Pen(Color.DarkGray, 1);
+            int y = 55;
+            Point p1 = new Point(0, y);
+            Point p2 = new Point(this.Width, y);
+            e.Graphics.DrawLine(pen, p1, p2);
         }
     }
 }

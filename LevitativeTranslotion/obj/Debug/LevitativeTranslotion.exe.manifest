@@ -43,14 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LevitativeTranslotion.exe" size="623616">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HtmlAgilityPack.dll" size="167424">
+      <assemblyIdentity name="HtmlAgilityPack" version="1.11.36.0" publicKeyToken="BD319B19EAF3B43A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>rr3CNr0qIsUuuj3eL2fUQw1uAi+KcK0hM+m4tezLbws=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LevitativeTranslotion.exe" size="338432">
       <assemblyIdentity name="LevitativeTranslotion" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>e594LCUOISo4Jg8cpGH1QAkCcV366Td+1auXLZ9KoW4=</dsig:DigestValue>
+        <dsig:DigestValue>c23tulitht29fn+t/Z0wrhFTLA+biQZGlk/3WJv3W4I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
