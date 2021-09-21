@@ -72,13 +72,13 @@ namespace LevitativeTranslotion
             this.設定ToolStripMenuItem,
             this.結束ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 64);
             // 
             // 設定ToolStripMenuItem
             // 
             this.設定ToolStripMenuItem.Name = "設定ToolStripMenuItem";
             this.設定ToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.設定ToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.設定ToolStripMenuItem.Size = new System.Drawing.Size(108, 30);
             this.設定ToolStripMenuItem.Text = "設定";
             this.設定ToolStripMenuItem.Click += new System.EventHandler(this.設定ToolStripMenuItem_Click);
             // 
@@ -86,7 +86,7 @@ namespace LevitativeTranslotion
             // 
             this.結束ToolStripMenuItem.Name = "結束ToolStripMenuItem";
             this.結束ToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.結束ToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.結束ToolStripMenuItem.Size = new System.Drawing.Size(108, 30);
             this.結束ToolStripMenuItem.Text = "結束";
             this.結束ToolStripMenuItem.Click += new System.EventHandler(this.結束ToolStripMenuItem_Click);
             // 
@@ -294,8 +294,10 @@ namespace LevitativeTranslotion
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "mainForm";
-            this.Text = "mainForm";
+            this.ShowIcon = false;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.mainForm_FormClosed);
             this.Load += new System.EventHandler(this.mainForm_Load);
             this.contextMenuStrip1.ResumeLayout(false);
