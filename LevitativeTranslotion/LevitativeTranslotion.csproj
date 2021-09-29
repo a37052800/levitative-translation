@@ -133,6 +133,12 @@
     <Compile Include="selectedWindow.Designer.cs">
       <DependentUpon>selectedWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="toolMunu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="toolMunu.Designer.cs">
+      <DependentUpon>toolMunu.cs</DependentUpon>
+    </Compile>
     <Compile Include="winAPI.cs" />
     <EmbeddedResource Include="bubble_Google.resx">
       <DependentUpon>bubble_Google.cs</DependentUpon>
@@ -161,6 +167,9 @@
     </Compile>
     <EmbeddedResource Include="selectedWindow.resx">
       <DependentUpon>selectedWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="toolMunu.resx">
+      <DependentUpon>toolMunu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
@@ -194,6 +203,17 @@
     <None Include="1x\trancore_click.png" />
     <None Include="1x\trancore_enter.png" />
     <None Include="1x\trancore_normal.png" />
+    <None Include="1x\checkbutton_off_enter.png" />
+    <None Include="1x\checkbutton_off_normal.png" />
+    <None Include="1x\checkbutton_on_enter.png" />
+    <None Include="1x\checkbutton_on_normal.png" />
+    <None Include="1x\down_click.png" />
+    <None Include="1x\down_enter.png" />
+    <None Include="1x\down_normal.png" />
+    <None Include="1x\up_click.png" />
+    <None Include="1x\up_enter.png" />
+    <None Include="1x\up_normal.png" />
+    <None Include="1x\menubutton_enter.png" />
     <Content Include="aim.bmp" />
     <EmbeddedResource Include="aim.cur" />
     <Content Include="icon.ico" />

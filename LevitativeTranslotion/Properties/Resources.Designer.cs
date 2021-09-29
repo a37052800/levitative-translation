@@ -73,6 +73,76 @@ namespace LevitativeTranslotion.Properties {
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
+        internal static System.Drawing.Bitmap checkbutton_off_enter {
+            get {
+                object obj = ResourceManager.GetObject("checkbutton_off_enter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap checkbutton_off_normal {
+            get {
+                object obj = ResourceManager.GetObject("checkbutton_off_normal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap checkbutton_on_enter {
+            get {
+                object obj = ResourceManager.GetObject("checkbutton_on_enter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap checkbutton_on_normal {
+            get {
+                object obj = ResourceManager.GetObject("checkbutton_on_normal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap down_click {
+            get {
+                object obj = ResourceManager.GetObject("down_click", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap down_enter {
+            get {
+                object obj = ResourceManager.GetObject("down_enter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap down_normal {
+            get {
+                object obj = ResourceManager.GetObject("down_normal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
         internal static System.Drawing.Bitmap empty {
             get {
                 object obj = ResourceManager.GetObject("empty", resourceCulture);
@@ -106,6 +176,16 @@ namespace LevitativeTranslotion.Properties {
         internal static System.Drawing.Bitmap hotkey_normal {
             get {
                 object obj = ResourceManager.GetObject("hotkey_normal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap menubutton_enter {
+            get {
+                object obj = ResourceManager.GetObject("menubutton_enter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +306,36 @@ namespace LevitativeTranslotion.Properties {
         internal static System.Drawing.Bitmap trancore_normal {
             get {
                 object obj = ResourceManager.GetObject("trancore_normal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap up_click {
+            get {
+                object obj = ResourceManager.GetObject("up_click", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap up_enter {
+            get {
+                object obj = ResourceManager.GetObject("up_enter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap up_normal {
+            get {
+                object obj = ResourceManager.GetObject("up_normal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

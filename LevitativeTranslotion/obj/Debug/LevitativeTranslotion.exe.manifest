@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LevitativeTranslotion.exe" size="338432">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LevitativeTranslotion.exe" size="350720">
       <assemblyIdentity name="LevitativeTranslotion" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>c23tulitht29fn+t/Z0wrhFTLA+biQZGlk/3WJv3W4I=</dsig:DigestValue>
+        <dsig:DigestValue>1KXeGa6ypzj4FuTJhCpPoQB1AVzfyCJXvZTlmujsQBg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

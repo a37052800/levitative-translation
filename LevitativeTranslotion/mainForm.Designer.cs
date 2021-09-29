@@ -54,7 +54,7 @@ namespace LevitativeTranslotion
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.BackColor = System.Drawing.SystemColors.Control;
-            this.contextMenuStrip1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.contextMenuStrip1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.設定ToolStripMenuItem,
@@ -99,6 +99,7 @@ namespace LevitativeTranslotion
             this.Trancore.Size = new System.Drawing.Size(317, 34);
             this.Trancore.TabIndex = 1;
             this.Trancore.UseVisualStyleBackColor = true;
+            this.Trancore.Click += new System.EventHandler(this.Trancore_Click);
             this.Trancore.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Trancore_MouseDown);
             this.Trancore.MouseEnter += new System.EventHandler(this.Trancore_MouseEnter);
             this.Trancore.MouseLeave += new System.EventHandler(this.Trancore_MouseLeave);
@@ -120,6 +121,7 @@ namespace LevitativeTranslotion
             this.Hotkey.TabIndex = 1;
             this.Hotkey.UseVisualStyleBackColor = true;
             this.Hotkey.Enter += new System.EventHandler(this.Hotkey_Enter);
+            this.Hotkey.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HotKeySlector_KeyUp);
             this.Hotkey.Leave += new System.EventHandler(this.Hotkey_Leave);
             this.Hotkey.MouseEnter += new System.EventHandler(this.Hotkey_MouseEnter);
             this.Hotkey.MouseLeave += new System.EventHandler(this.Hotkey_MouseLeave);
@@ -139,6 +141,7 @@ namespace LevitativeTranslotion
             this.Minimize.Size = new System.Drawing.Size(32, 32);
             this.Minimize.TabIndex = 1;
             this.Minimize.UseVisualStyleBackColor = true;
+            this.Minimize.Click += new System.EventHandler(this.Minimize_Click);
             this.Minimize.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Minimize_MouseDown);
             this.Minimize.MouseEnter += new System.EventHandler(this.Minimize_MouseEnter);
             this.Minimize.MouseLeave += new System.EventHandler(this.Minimize_MouseLeave);
@@ -178,6 +181,7 @@ namespace LevitativeTranslotion
             this.More.Size = new System.Drawing.Size(7, 19);
             this.More.TabIndex = 1;
             this.More.UseVisualStyleBackColor = true;
+            this.More.Click += new System.EventHandler(this.More_Click);
             this.More.MouseEnter += new System.EventHandler(this.More_MouseEnter);
             this.More.MouseLeave += new System.EventHandler(this.More_MouseLeave);
             // 

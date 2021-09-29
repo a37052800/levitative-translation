@@ -118,55 +118,88 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="hotkey_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1x\hotkey_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="more_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1x\more_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="switch_off_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1x\switch_off_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="switch_on_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1x\switch_on_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimize_click" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1x\minimize_click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="more_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1x\more_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="switch_off_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1x\switch_off_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="switch_on_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1x\switch_on_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\empty.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="aim" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\aim.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="minimize_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1x\minimize_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hotkey_click" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1x\hotkey_click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimize_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1x\minimize_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hotkey_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1x\hotkey_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="trancore_click" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\1x\trancore_click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hotkey_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\hotkey_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="trancore_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\1x\trancore_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="minimize_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\minimize_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="switch_off_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\switch_off_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="switch_off_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\switch_off_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minimize_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\minimize_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="up_click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\up_click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="switch_on_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\switch_on_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="checkbutton_off_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\checkbutton_off_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="down_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\down_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="down_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\down_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="more_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\more_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="up_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\up_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="checkbutton_on_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\checkbutton_on_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\empty.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="up_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\up_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minimize_click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\minimize_click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hotkey_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\hotkey_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="switch_on_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\switch_on_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="trancore_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\1x\trancore_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hotkey_click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\hotkey_click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="checkbutton_on_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\checkbutton_on_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trancore_click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\trancore_click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="more_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\more_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="checkbutton_off_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\checkbutton_off_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="down_click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\down_click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menubutton_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\1x\menubutton_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

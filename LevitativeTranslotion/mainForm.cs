@@ -14,7 +14,10 @@ namespace LevitativeTranslotion
     public partial class mainForm : Form
     {
         private Thread thread;
-        private bool opened = false;
+        private bool running = false;
+        private string[] coretype = { "Null", "Google", "NAER" };
+        private int trancore = 0;
+        private toolMunu munu = new toolMunu();
 
         public mainForm()
         {
@@ -27,6 +30,47 @@ namespace LevitativeTranslotion
             Button button = (Button)sender;
             button.Text = e.KeyCode.ToString();
             button.Tag = e.KeyCode;
+        }
+
+        private void Trancore_Click(object sender, EventArgs e)
+        {
+            trancore = (trancore + 1) % 3;
+            switch (coretype[trancore])
+            {
+                case "Null":
+                    Trancore.Text = "無";
+                    Trancore.Tag = null;
+                    trancore = 0;
+                    break;
+                case "Google":
+                    Trancore.Text = "Google 翻譯";
+                    googleSet GSForm = new googleSet();
+                    if (GSForm.ShowDialog() == DialogResult.OK)
+                    {
+                        Trancore.Tag = GSForm.returnSitting();
+                    }
+                    else
+                    {
+                        Trancore.Text = "無";
+                        Trancore.Tag = null;
+                        trancore = 0;
+                    }
+                    break;
+                case "NAER":
+                    Trancore.Text = "雙語詞彙學術名詞暨辭書資訊網";
+                    NAERSet NSForm = new NAERSet();
+                    if (NSForm.ShowDialog() == DialogResult.OK)
+                    {
+                        Trancore.Tag = NSForm.returnSetting();
+                    }
+                    else
+                    {
+                        Trancore.Text = "無";
+                        Trancore.Tag = null;
+                        trancore = 0;
+                    }
+                    break;
+            }
         }
 
         private void ComboBoxChanged(object sender, EventArgs e)
@@ -72,6 +116,20 @@ namespace LevitativeTranslotion
             }
             if (comboBox.Text == "無")
                 comboBox.Tag = null;
+        }
+
+        private void Minimize_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            if (running)
+                notifyIcon1.ShowBalloonTip(3, "運行中", "縮小至系統匣", ToolTipIcon.None);
+            else
+                notifyIcon1.ShowBalloonTip(3, "未運行", "縮小至系統匣", ToolTipIcon.None);
+        }
+
+        private void More_Click(object sender, EventArgs e)
+        {
+            munu.Show();
         }
 
         private void Hotkey_Press(byte index)
@@ -160,7 +218,7 @@ namespace LevitativeTranslotion
                 thread.Abort();
                 winAPI.KeyOperate((Keys)More.Tag, 2);
             }
-        }
+        }    //move to Switch
 
         private void mainForm_Load(object sender, EventArgs e)
         {
@@ -182,7 +240,7 @@ namespace LevitativeTranslotion
         private void 結束ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CloseForm();
-        }
+        }   //remove
 
         private void mainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -198,7 +256,7 @@ namespace LevitativeTranslotion
         private void 設定ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Show();
-        }
+        }   //change to Menuform
 
         //Item interaction
         private void More_MouseEnter(object sender, EventArgs e)
@@ -213,7 +271,7 @@ namespace LevitativeTranslotion
 
         private void Switch_MouseEnter(object sender, EventArgs e)
         {
-            if (opened)
+            if (running)
                 Switch.BackgroundImage = Properties.Resources.switch_on_enter;
             else
                 Switch.BackgroundImage = Properties.Resources.switch_off_enter;
@@ -221,7 +279,7 @@ namespace LevitativeTranslotion
 
         private void Switch_MouseLeave(object sender, EventArgs e)
         {
-            if (opened)
+            if (running)
                 Switch.BackgroundImage = Properties.Resources.switch_on_normal;
             else
                 Switch.BackgroundImage = Properties.Resources.switch_off_normal;
@@ -229,8 +287,8 @@ namespace LevitativeTranslotion
 
         private void Switch_Click(object sender, EventArgs e)
         {
-            opened = !opened;
-            if (opened)
+            running = !running;
+            if (running)
                 Switch.BackgroundImage = Properties.Resources.switch_on_enter;
             else
                 Switch.BackgroundImage = Properties.Resources.switch_off_enter;
@@ -325,7 +383,7 @@ namespace LevitativeTranslotion
 
         private void mainForm_Paint(object sender, PaintEventArgs e)
         {
-            Pen pen = new Pen(Color.DarkGray, 1);
+            Pen pen = new Pen(Color.Gray, 1);
             int y = 55;
             Point p1 = new Point(0, y);
             Point p2 = new Point(this.Width, y);
