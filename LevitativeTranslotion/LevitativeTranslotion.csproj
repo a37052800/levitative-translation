@@ -119,6 +119,9 @@
     <Compile Include="mainForm.Designer.cs">
       <DependentUpon>mainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="mainForm.interaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="NAERSet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,11 +136,11 @@
     <Compile Include="selectedWindow.Designer.cs">
       <DependentUpon>selectedWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="toolMunu.cs">
+    <Compile Include="toolMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="toolMunu.Designer.cs">
-      <DependentUpon>toolMunu.cs</DependentUpon>
+    <Compile Include="toolMenu.Designer.cs">
+      <DependentUpon>toolMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="winAPI.cs" />
     <EmbeddedResource Include="bubble_Google.resx">
@@ -168,8 +171,8 @@
     <EmbeddedResource Include="selectedWindow.resx">
       <DependentUpon>selectedWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="toolMunu.resx">
-      <DependentUpon>toolMunu.cs</DependentUpon>
+    <EmbeddedResource Include="toolMenu.resx">
+      <DependentUpon>toolMenu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />

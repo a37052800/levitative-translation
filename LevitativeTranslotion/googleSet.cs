@@ -22,9 +22,9 @@ namespace LevitativeTranslotion
             button1.DialogResult = DialogResult.OK;
         }
 
-        public SetConfig returnSitting()
+        public CoreConfig returnSitting()
         {
-            SetConfig config = new SetConfig(tran[1,comboBox1.SelectedIndex],
+            CoreConfig config = new CoreConfig(tran[1,comboBox1.SelectedIndex],
                                              tran[1,comboBox2.SelectedIndex+1]);
             return config;
         }

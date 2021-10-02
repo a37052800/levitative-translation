@@ -10,26 +10,72 @@ using System.Windows.Forms;
 
 namespace LevitativeTranslotion
 {
-    public partial class toolMunu : Form
+    public partial class toolMenu : Form
     {
-        public toolMunu()
+        private IntPtr hwnd;
+        private string filename;
+
+        public toolMenu()
         {
             InitializeComponent();
             Paste.Tag = false;
             Export.Tag = false;
+            FontSize.Tag = 9;
         }
 
-        private void toolMunu_Load(object sender, EventArgs e)
+        private void toolMenu_Load(object sender, EventArgs e)
         {
+            this.Activate();
             this.Size = new Size(144, 132);
             this.Location = Control.MousePosition;
         }
 
-        private void toolMunu_Deactivate(object sender, EventArgs e)
+        private void toolMenu_Deactivate(object sender, EventArgs e)
         {
             this.Hide();
         }
 
+        private void ExitP_Click(object sender, EventArgs e)
+        {
+            mainForm mForm = (mainForm)this.Owner;
+            mForm.CloseForm();
+        }
+
+        private void Paste_Click(object sender, EventArgs e)
+        {
+            //interaction
+            Button checkbutton = (Button)sender;
+            checkbutton.Tag = !(bool)checkbutton.Tag;
+
+            //function
+            selectedWindow selectWin = new selectedWindow();
+            if (selectWin.ShowDialog() == DialogResult.OK)
+                hwnd = selectWin.returnHWND();
+            else
+                Paste.Tag = false;
+            checkbutton_MouseEnter(sender, e);
+        }
+
+        private void Export_Click(object sender, EventArgs e)
+        {
+            //interaction
+            Button checkbutton = (Button)sender;
+            checkbutton.Tag = !(bool)checkbutton.Tag;
+
+            //function
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                filename = saveFileDialog1.FileName;
+            else
+                Export.Tag = false;
+            checkbutton_MouseEnter(sender, e);
+        }
+
+        public MoreConfig GetConfig()
+        {
+            MoreConfig config = new MoreConfig((bool)Paste.Tag, (bool)Export.Tag, hwnd, filename, (int)FontSize.Tag);
+            return config;
+        }
+        //Item interaction
         private void checkbutton_MouseEnter(object sender, EventArgs e)
         {
             Button checkbutton = (Button)sender;
@@ -90,12 +136,30 @@ namespace LevitativeTranslotion
 
         private void Close_MouseEnter(object sender, EventArgs e)
         {
-            Close.BackgroundImage = Properties.Resources.menubutton_enter;
+            ExitP.BackgroundImage = Properties.Resources.menubutton_enter;
         }
 
         private void Close_MouseLeave(object sender, EventArgs e)
         {
-            Close.BackgroundImage = null;
+            ExitP.BackgroundImage = null;
+        }
+
+        private void Up_Click(object sender, EventArgs e)
+        {
+            int size = (int)FontSize.Tag;
+            if (size < 99)
+                size++;
+            FontSize.Tag = size;
+            FontSize.Text = size.ToString();
+        }
+
+        private void Down_Click(object sender, EventArgs e)
+        {
+            int size = (int)FontSize.Tag;
+            if (size > 6)
+                size--;
+            FontSize.Tag = size;
+            FontSize.Text = size.ToString();
         }
     }
 }

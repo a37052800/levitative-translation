@@ -16,8 +16,8 @@ namespace LevitativeTranslotion
         private Thread thread;
         private bool running = false;
         private string[] coretype = { "Null", "Google", "NAER" };
-        private int trancore = 0;
-        private toolMunu munu = new toolMunu();
+        private int coreIndex = 0;
+        private toolMenu menu = new toolMenu();
 
         public mainForm()
         {
@@ -34,13 +34,13 @@ namespace LevitativeTranslotion
 
         private void Trancore_Click(object sender, EventArgs e)
         {
-            trancore = (trancore + 1) % 3;
-            switch (coretype[trancore])
+            coreIndex = (coreIndex + 1) % 3;
+            switch (coretype[coreIndex])
             {
                 case "Null":
                     Trancore.Text = "無";
                     Trancore.Tag = null;
-                    trancore = 0;
+                    coreIndex = 0;
                     break;
                 case "Google":
                     Trancore.Text = "Google 翻譯";
@@ -53,7 +53,7 @@ namespace LevitativeTranslotion
                     {
                         Trancore.Text = "無";
                         Trancore.Tag = null;
-                        trancore = 0;
+                        coreIndex = 0;
                     }
                     break;
                 case "NAER":
@@ -67,55 +67,10 @@ namespace LevitativeTranslotion
                     {
                         Trancore.Text = "無";
                         Trancore.Tag = null;
-                        trancore = 0;
+                        coreIndex = 0;
                     }
                     break;
             }
-        }
-
-        private void ComboBoxChanged(object sender, EventArgs e)
-        {
-            ComboBox comboBox = (ComboBox)sender;
-            switch (comboBox.Text)
-            {
-                case "無":
-                    comboBox.Tag = null;
-                    break;
-                case "Google":
-                    googleSet GSForm = new googleSet();
-                    if (GSForm.ShowDialog() == DialogResult.OK)
-                    {
-                        comboBox.Tag = GSForm.returnSitting();
-                    }
-                    else comboBox.Text = "無";
-                    break;
-                case "NAER":
-                    NAERSet NSForm = new NAERSet();
-                    if (NSForm.ShowDialog() == DialogResult.OK)
-                    {
-                        comboBox.Tag = NSForm.returnSetting();
-                    }
-                    else comboBox.Text = "無";
-                    break;
-                case "輸出至文件":
-                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                    {
-                        SetConfig config = new SetConfig(saveFileDialog1.FileName);
-                        comboBox.Tag = config;
-                    }
-                    else comboBox.Text = "無";
-                    break;
-                case "貼上到視窗":
-                    selectedWindow SelForm = new selectedWindow();
-                    if ((SelForm.ShowDialog() == DialogResult.OK) && (SelForm.returnHWND().hwnd != IntPtr.Zero))
-                    {
-                        comboBox.Tag = SelForm.returnHWND();
-                    }
-                    else comboBox.Text = "無";
-                    break;
-            }
-            if (comboBox.Text == "無")
-                comboBox.Tag = null;
         }
 
         private void Minimize_Click(object sender, EventArgs e)
@@ -129,96 +84,98 @@ namespace LevitativeTranslotion
 
         private void More_Click(object sender, EventArgs e)
         {
-            munu.Show();
+            menu.Show();
         }
 
-        private void Hotkey_Press(byte index)
+        private void Switch_Click(object sender, EventArgs e)
+        {
+            //interaction
+            running = !running;
+            if (running)
+                Switch.BackgroundImage = Properties.Resources.switch_on_enter;
+            else
+                Switch.BackgroundImage = Properties.Resources.switch_off_enter;
+
+            //Function
+            if (running)
+            {
+                if (Hotkey.Tag != null)
+                    thread = HotkeyThread.StartNewThread((Keys)Hotkey.Tag);
+                else
+                {
+                    running = false;
+                    MessageBox.Show("請設置快捷鍵"); //notice by brush flash
+                }
+            }
+            else
+            {
+                if (thread != null)
+                {
+                    thread.Abort();
+                    winAPI.KeyOperate((Keys)Hotkey.Tag, 2);
+                }
+            }
+        }
+
+        private void Hotkey_Press()
         {
             winAPI.KeyOperate(Keys.ControlKey, Keys.C, 100);
-            object obj = Invoke(new mainThread(GetConfig), new object[] { index });
+            object obj = Invoke(new mainThread(GetConfig));
             Config config = (Config)obj;
-            switch (config.config1.type)
+            if (config.trancore.type != null)
+                switch (config.trancore.type)
+                {
+                    case "Google":
+                        bubble_Google gBubble = new bubble_Google(Translator.GoogleTranslatedText(config.trancore.gIn,
+                                                                                                 config.trancore.gOut,
+                                                                                                 config.text));
+                        gBubble.ShowDialog();
+                        break;
+                    case "NAER":
+                        bubble_NAER nBubble = new bubble_NAER(Translator.NAERSearch(config.trancore.nSource,
+                                                                                    config.trancore.nEnname,
+                                                                                    config.trancore.nZhtwname,
+                                                                                    config.trancore.nSearchNum,
+                                                                                    config.text));
+                        nBubble.ShowDialog();
+                        break;
+                }
+            if(config.morefunction.isPaste)
+                winAPI.SendString(config.morefunction.hwnd, config.text);
+            if(config.morefunction.isExport)
             {
-                case "Google":
-                    bubble_Google gBubble = new bubble_Google(Translator.GoogleTranslatedText(config.config1.gIn,
-                                                                                             config.config1.gOut,
-                                                                                             config.text));
-                    gBubble.ShowDialog();
-                    break;
-                case "NAER":
-                    bubble_NAER nBubble = new bubble_NAER(Translator.NAERSearch(config.config1.nSource,
-                                                                                config.config1.nEnname,
-                                                                                config.config1.nZhtwname,
-                                                                                config.config1.nSearchNum,
-                                                                                config.text));
-                    nBubble.ShowDialog();
-                    break;
-            }
-            switch (config.config2.type)
-            {
-                case "Paste":
-                    winAPI.SendString(config.config2.hwnd, config.text);
-                    break;
-                case "Export":
-                    FileStream file = new FileStream(config.config2.filename, FileMode.Append);
-                    byte[] text = Encoding.UTF8.GetBytes(config.text + '\n');
-                    file.Write(text, 0, text.Length);
-                    file.Close();
-                    break;
+                FileStream file = new FileStream(config.morefunction.filename, FileMode.Append);
+                byte[] text = Encoding.UTF8.GetBytes(config.text + '\n');
+                file.Write(text, 0, text.Length);
+                file.Close();
             }
         }
 
-        private delegate Config mainThread(byte index);
+        private delegate Config mainThread();
 
         private struct Config
         {
             public string text;
-            public SetConfig config1;
-            public SetConfig config2;
+            public CoreConfig trancore;
+            public MoreConfig morefunction;
         }
 
-        private Config GetConfig(byte index)
+        private Config GetConfig()
         {
-            SetConfig set1 = new SetConfig();
-            SetConfig set2 = new SetConfig();
-            //switch (index)
-            //{
-            //    case 1:
-            //        if (comboBox1.Tag != null)
-            //            set1 = (SetConfig)comboBox1.Tag;
-            //        if (comboBox2.Tag != null)
-            //            set2 = (SetConfig)comboBox2.Tag;
-            //        break;
-            //    case 2:
-            //        if (comboBox3.Tag != null)
-            //            set1 = (SetConfig)comboBox3.Tag;
-            //        if (comboBox4.Tag != null)
-            //            set2 = (SetConfig)comboBox4.Tag;
-            //        break;
-            //    case 3:
-            //        if (comboBox5.Tag != null)
-            //            set1 = (SetConfig)comboBox5.Tag;
-            //        if (comboBox6.Tag != null)
-            //            set2 = (SetConfig)comboBox6.Tag;
-            //        break;
-            //}
+            CoreConfig trancoreTag = new CoreConfig();
+            MoreConfig moreTag = new MoreConfig();
+
+            trancoreTag = (CoreConfig)Trancore.Tag;
+            moreTag = menu.GetConfig();
+
             Config config = new Config
             {
                 text = Clipboard.GetText(),
-                config1 = set1,
-                config2 = set2
+                trancore = trancoreTag,
+                morefunction = moreTag
             };
             return config;
         }
-
-        private void Reset_Click(object sender, EventArgs e)
-        {
-            if (thread != null)
-            {
-                thread.Abort();
-                winAPI.KeyOperate((Keys)More.Tag, 2);
-            }
-        }    //move to Switch
 
         private void mainForm_Load(object sender, EventArgs e)
         {
@@ -235,19 +192,15 @@ namespace LevitativeTranslotion
             winAPI.DwmExtendFrameIntoClientArea(this.Handle, ref marg);
 
             //initial setting
+            menu.Owner = this;
         }
-
-        private void 結束ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CloseForm();
-        }   //remove
 
         private void mainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             CloseForm();
         }
 
-        private void CloseForm()
+        public void CloseForm()
         {
             notifyIcon1.Visible = false;
             Environment.Exit(0);
@@ -258,129 +211,6 @@ namespace LevitativeTranslotion
             this.Show();
         }   //change to Menuform
 
-        //Item interaction
-        private void More_MouseEnter(object sender, EventArgs e)
-        {
-            More.BackgroundImage = Properties.Resources.more_enter;
-        }
-
-        private void More_MouseLeave(object sender, EventArgs e)
-        {
-            More.BackgroundImage = Properties.Resources.more_normal;
-        }
-
-        private void Switch_MouseEnter(object sender, EventArgs e)
-        {
-            if (running)
-                Switch.BackgroundImage = Properties.Resources.switch_on_enter;
-            else
-                Switch.BackgroundImage = Properties.Resources.switch_off_enter;
-        }
-
-        private void Switch_MouseLeave(object sender, EventArgs e)
-        {
-            if (running)
-                Switch.BackgroundImage = Properties.Resources.switch_on_normal;
-            else
-                Switch.BackgroundImage = Properties.Resources.switch_off_normal;
-        }
-
-        private void Switch_Click(object sender, EventArgs e)
-        {
-            running = !running;
-            if (running)
-                Switch.BackgroundImage = Properties.Resources.switch_on_enter;
-            else
-                Switch.BackgroundImage = Properties.Resources.switch_off_enter;
-        }
-
-        private void Minimize_MouseEnter(object sender, EventArgs e)
-        {
-            Minimize.BackgroundImage = Properties.Resources.minimize_enter;
-        }
-
-        private void Minimize_MouseLeave(object sender, EventArgs e)
-        {
-            Minimize.BackgroundImage = Properties.Resources.minimize_normal;
-        }
-
-        private void Minimize_MouseDown(object sender, MouseEventArgs e)
-        {
-            Minimize.BackgroundImage = Properties.Resources.minimize_click;
-        }
-
-        private void Minimize_MouseUp(object sender, MouseEventArgs e)
-        {
-            Minimize.BackgroundImage = Properties.Resources.minimize_enter;
-        }
-
-        private void Hotkey_MouseEnter(object sender, EventArgs e)
-        {
-            if (!Hotkey.Focused)
-                Hotkey.BackgroundImage = Properties.Resources.hotkey_enter;
-        }
-
-        private void Hotkey_MouseLeave(object sender, EventArgs e)
-        {
-            if (!Hotkey.Focused)
-                Hotkey.BackgroundImage = Properties.Resources.hotkey_normal;
-        }
-
-        private void Hotkey_Enter(object sender, EventArgs e)
-        {
-            Hotkey.BackgroundImage = Properties.Resources.hotkey_click;
-        }
-
-        private void Hotkey_Leave(object sender, EventArgs e)
-        {
-            Hotkey.BackgroundImage = Properties.Resources.hotkey_normal;
-        }
-
-        private void Trancore_MouseEnter(object sender, EventArgs e)
-        {
-            Trancore.BackgroundImage = Properties.Resources.trancore_enter;
-        }
-
-        private void Trancore_MouseLeave(object sender, EventArgs e)
-        {
-            Trancore.BackgroundImage = Properties.Resources.trancore_normal;
-        }
-
-        private void Trancore_MouseDown(object sender, MouseEventArgs e)
-        {
-            Trancore.BackgroundImage = Properties.Resources.trancore_click;
-        }
-
-        private void Trancore_MouseUp(object sender, MouseEventArgs e)
-        {
-            Trancore.BackgroundImage = Properties.Resources.trancore_enter;
-        }
-        //Form move
-        private bool Drag;
-        private int MouseX;
-        private int MouseY;
-
-        private void mainForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            Drag = true;
-            MouseX = Cursor.Position.X - this.Left;
-            MouseY = Cursor.Position.Y - this.Top;
-        }
-
-        private void mainForm_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (Drag)
-            {
-                this.Top = Cursor.Position.Y - MouseY;
-                this.Left = Cursor.Position.X - MouseX;
-            }
-        }
-
-        private void mainForm_MouseUp(object sender, MouseEventArgs e)
-        {
-            Drag = false;
-        }
-
         private void mainForm_Paint(object sender, PaintEventArgs e)
         {
             Pen pen = new Pen(Color.Gray, 1);
@@ -388,6 +218,17 @@ namespace LevitativeTranslotion
             Point p1 = new Point(0, y);
             Point p2 = new Point(this.Width, y);
             e.Graphics.DrawLine(pen, p1, p2);
+        }
+
+        private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                menu.Show();
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            this.Show();
         }
     }
 }

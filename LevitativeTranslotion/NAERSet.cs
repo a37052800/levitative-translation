@@ -18,9 +18,9 @@ namespace LevitativeTranslotion
             button3.DialogResult = DialogResult.OK;
         }
 
-        public SetConfig returnSetting()
+        public CoreConfig returnSetting()
         {
-            SetConfig config = new SetConfig(checkBox1.Checked,
+            CoreConfig config = new CoreConfig(checkBox1.Checked,
                                              checkBox2.Checked,
                                              checkBox3.Checked,
                                              (int)numericUpDown1.Value);

@@ -27,7 +27,7 @@ namespace LevitativeTranslotion
         }
     }
 
-    public class SetConfig
+    public class CoreConfig
     {
         private string _type;
         private string[] _gSitting = new string[2];
@@ -36,16 +36,16 @@ namespace LevitativeTranslotion
         private IntPtr _hwnd;
         private string _filename;
 
-        public SetConfig() { }
+        public CoreConfig() { }
 
-        public SetConfig(string gIn, string gOut)  //for google
+        public CoreConfig(string gIn, string gOut)  //for google
         {
             _type = "Google";
             _gSitting[0] = gIn;
             _gSitting[1] = gOut;
         }
 
-        public SetConfig(bool sClass, bool sEn, bool sZh, int searchNum)  //for NAER
+        public CoreConfig(bool sClass, bool sEn, bool sZh, int searchNum)  //for NAER
         {
             _type = "NAER";
             _nDisplay[0] = sClass;
@@ -54,13 +54,13 @@ namespace LevitativeTranslotion
             _nSearch = searchNum;
         }
 
-        public SetConfig(IntPtr hwnd)
+        public CoreConfig(IntPtr hwnd)
         {
             _type = "Paste";
             _hwnd = hwnd;
         }  //for Paste to Window
 
-        public SetConfig(string filename) //for Export to file
+        public CoreConfig(string filename) //for Export to file
         {
             _type = "Export";
             _filename = filename;
@@ -79,6 +79,24 @@ namespace LevitativeTranslotion
         public IntPtr hwnd { get => _hwnd; }
 
         public string filename { get => _filename; }
+    }
+    public class MoreConfig
+    {
+        public bool isPaste { get; }
+        public bool isExport { get; }
+        public IntPtr hwnd { get; }
+        public string filename { get; }
+        public int fontSize { get; }
+
+        public MoreConfig() { }
+        public MoreConfig(bool isPaste, bool isExport, IntPtr hwnd, string filename, int fontSize)
+        {
+            this.isPaste = isPaste;
+            this.isExport = isExport;
+            this.hwnd = hwnd;
+            this.filename = filename;
+            this.fontSize = fontSize;
+        }
     }
 
     public class Translator
@@ -128,43 +146,30 @@ namespace LevitativeTranslotion
         }
     }
 
-    public delegate void HotkeyPressEvent(byte index);
+    public delegate void HotkeyPressEvent();
     public class HotkeyThread
     {
         public static event HotkeyPressEvent HotkeyPress;
 
-        private class ThreadInfo
+        public static Thread StartNewThread(Keys keys)
         {
-            public byte index { get; set; }
-            public Keys Keys { get; set; }
-
-            public ThreadInfo(byte index, Keys keys)
-            {
-                this.index = index;
-                this.Keys = keys;
-            }
-        }
-
-        public static Thread StartNewThread(byte index, Keys keys)
-        {
-            ThreadInfo obj = new ThreadInfo(index, keys);
             Thread hotkeyThread = new Thread(NewHotkey);
-            hotkeyThread.Start(obj);
-            
+            hotkeyThread.Start(keys);
+
             return hotkeyThread;
         }
 
         private static void NewHotkey(object obj)
         {
-            ThreadInfo info = (ThreadInfo)obj;
-            if (winAPI.RegisterHotKey(IntPtr.Zero, 0, 0, (uint)info.Keys))
+            Keys keys = (Keys)obj;
+            if (winAPI.RegisterHotKey(IntPtr.Zero, 0, 0, (uint)keys))
             {
                 NativeMessage msg = new NativeMessage();
                 while (true)
                 {
                     //winAPI.WaitMessage();
                     winAPI.GetMessage(ref msg, IntPtr.Zero, 0x0312, 0x0312);
-                    HotkeyPress?.Invoke(info.index);
+                    HotkeyPress?.Invoke();
                     /*winAPI.PeekMessage(ref msg, IntPtr.Zero, 0x0312, 0x0312, 1);
                     if (msg.msg == 0x0312)  //0x0312 = Hotkey Messenge
                     {
@@ -175,7 +180,7 @@ namespace LevitativeTranslotion
             }
             else
             {
-                MessageBox.Show("按鍵 " + info.Keys.ToString() + " 已被占用，請更換快捷鍵");
+                MessageBox.Show("按鍵 " + keys.ToString() + " 已被占用，請更換快捷鍵");
             }
         }
     }
