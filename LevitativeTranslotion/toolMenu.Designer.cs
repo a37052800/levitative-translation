@@ -84,7 +84,7 @@ namespace LevitativeTranslotion
             this.FontSize.Name = "FontSize";
             this.FontSize.Size = new System.Drawing.Size(29, 21);
             this.FontSize.TabIndex = 5;
-            this.FontSize.Text = "9";
+            this.FontSize.Text = "10";
             this.FontSize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Down

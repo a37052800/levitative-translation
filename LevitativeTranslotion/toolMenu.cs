@@ -20,7 +20,7 @@ namespace LevitativeTranslotion
             InitializeComponent();
             Paste.Tag = false;
             Export.Tag = false;
-            FontSize.Tag = 9;
+            FontSize.Tag = 10;
         }
 
         private void toolMenu_Load(object sender, EventArgs e)

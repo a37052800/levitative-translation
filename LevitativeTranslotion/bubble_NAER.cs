@@ -17,7 +17,7 @@ namespace LevitativeTranslotion
         {
             InitializeComponent();
         }
-        public bubble_NAER(ArrayList[] result)
+        public bubble_NAER(ArrayList[] result, int fontSize)
         {
             InitializeComponent();
             dataGridView1.Columns.Add("Source", "學術領域/出處");
@@ -27,6 +27,7 @@ namespace LevitativeTranslotion
             {
                 dataGridView1.Rows.Add(result[0][i], result[1][i], result[2][i]);
             }
+            dataGridView1.Font = new Font(dataGridView1.Font.FontFamily, fontSize);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

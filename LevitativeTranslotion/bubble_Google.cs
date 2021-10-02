@@ -19,10 +19,11 @@ namespace LevitativeTranslotion
             InitializeComponent();
         }
 
-        public bubble_Google(string str)
+        public bubble_Google(string str, int fontSize)
         {
             InitializeComponent();
             label1.Text = str;
+            label1.Font = new Font(label1.Font.FontFamily, fontSize);
             this.Text = string.Empty;
             this.ControlBox = false;
         }

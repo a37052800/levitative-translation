@@ -122,13 +122,15 @@ namespace LevitativeTranslotion
             winAPI.KeyOperate(Keys.ControlKey, Keys.C, 100);
             object obj = Invoke(new mainThread(GetConfig));
             Config config = (Config)obj;
+            string translation = "";
             if (config.trancore.type != null)
                 switch (config.trancore.type)
                 {
                     case "Google":
-                        bubble_Google gBubble = new bubble_Google(Translator.GoogleTranslatedText(config.trancore.gIn,
-                                                                                                 config.trancore.gOut,
-                                                                                                 config.text));
+                        translation = Translator.GoogleTranslatedText(config.trancore.gIn,
+                                                                             config.trancore.gOut,
+                                                                             config.text);
+                        bubble_Google gBubble = new bubble_Google(translation, config.morefunction.fontSize);
                         gBubble.ShowDialog();
                         break;
                     case "NAER":
@@ -136,13 +138,20 @@ namespace LevitativeTranslotion
                                                                                     config.trancore.nEnname,
                                                                                     config.trancore.nZhtwname,
                                                                                     config.trancore.nSearchNum,
-                                                                                    config.text));
+                                                                                    config.text),
+                                                                                    config.morefunction.fontSize);
                         nBubble.ShowDialog();
                         break;
                 }
-            if(config.morefunction.isPaste)
+
+            if (config.morefunction.isPaste)
+            {
                 winAPI.SendString(config.morefunction.hwnd, config.text);
-            if(config.morefunction.isExport)
+                if (translation != "")
+                    winAPI.SendString(config.morefunction.hwnd, " " + translation);
+            }
+
+            if (config.morefunction.isExport)
             {
                 FileStream file = new FileStream(config.morefunction.filename, FileMode.Append);
                 byte[] text = Encoding.UTF8.GetBytes(config.text + '\n');
