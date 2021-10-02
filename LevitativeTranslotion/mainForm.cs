@@ -141,6 +141,7 @@ namespace LevitativeTranslotion
                                                                                     config.text),
                                                                                     config.morefunction.fontSize);
                         nBubble.ShowDialog();
+                        translation = nBubble.translation;
                         break;
                 }
 
@@ -154,7 +155,11 @@ namespace LevitativeTranslotion
             if (config.morefunction.isExport)
             {
                 FileStream file = new FileStream(config.morefunction.filename, FileMode.Append);
-                byte[] text = Encoding.UTF8.GetBytes(config.text + '\n');
+                byte[] text;
+                if (translation != "")
+                    text = Encoding.Default.GetBytes(config.text + ',' + translation + '\n');
+                else
+                    text = Encoding.Default.GetBytes(config.text + '\n');
                 file.Write(text, 0, text.Length);
                 file.Close();
             }

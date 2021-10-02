@@ -48,11 +48,14 @@ namespace LevitativeTranslotion
             checkbutton.Tag = !(bool)checkbutton.Tag;
 
             //function
-            selectedWindow selectWin = new selectedWindow();
-            if (selectWin.ShowDialog() == DialogResult.OK)
-                hwnd = selectWin.returnHWND();
-            else
-                Paste.Tag = false;
+            if ((bool)checkbutton.Tag)
+            {
+                selectedWindow selectWin = new selectedWindow();
+                if (selectWin.ShowDialog() == DialogResult.OK)
+                    hwnd = selectWin.returnHWND();
+                else
+                    Paste.Tag = false;
+            }
             checkbutton_MouseEnter(sender, e);
         }
 
@@ -63,10 +66,13 @@ namespace LevitativeTranslotion
             checkbutton.Tag = !(bool)checkbutton.Tag;
 
             //function
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                filename = saveFileDialog1.FileName;
-            else
-                Export.Tag = false;
+            if ((bool)checkbutton.Tag)
+            {
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                    filename = saveFileDialog1.FileName;
+                else
+                    Export.Tag = false;
+            }
             checkbutton_MouseEnter(sender, e);
         }
 

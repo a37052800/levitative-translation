@@ -13,6 +13,8 @@ namespace LevitativeTranslotion
 {
     public partial class bubble_NAER : Form
     {
+        public string translation;
+        
         public bubble_NAER()
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace LevitativeTranslotion
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            translation = dataGridView1.CurrentCell.Value.ToString();
             this.Close();
         }
 
