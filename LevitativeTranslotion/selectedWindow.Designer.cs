@@ -77,6 +77,7 @@ namespace LevitativeTranslotion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(278, 245);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox1);
@@ -89,7 +90,6 @@ namespace LevitativeTranslotion
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "selectedWindow";
             this.ResumeLayout(false);
             this.PerformLayout();
 
