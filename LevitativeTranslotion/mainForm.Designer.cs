@@ -71,6 +71,7 @@ namespace LevitativeTranslotion
             // Hotkey
             // 
             this.Hotkey.BackgroundImage = global::LevitativeTranslotion.Properties.Resources.hotkey_normal;
+            this.Hotkey.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Hotkey.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.Hotkey.FlatAppearance.BorderSize = 0;
             this.Hotkey.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;

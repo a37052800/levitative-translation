@@ -100,15 +100,20 @@ namespace LevitativeTranslotion
             if (running)
             {
                 if (Hotkey.Tag != null)
+                {
                     thread = HotkeyThread.StartNewThread((Keys)Hotkey.Tag);
+                    Hotkey.Enabled = false;
+                }
                 else
                 {
                     running = false;
+                    Hotkey.Enabled = true;
                     MessageBox.Show("請設置快捷鍵"); //notice by brush flash
                 }
             }
             else
             {
+                Hotkey.Enabled = true;
                 if (thread != null)
                 {
                     thread.Abort();
@@ -134,9 +139,7 @@ namespace LevitativeTranslotion
                         gBubble.ShowDialog();
                         break;
                     case "NAER":
-                        bubble_NAER nBubble = new bubble_NAER(Translator.NAERSearch(config.trancore.nSource,
-                                                                                    config.trancore.nEnname,
-                                                                                    config.trancore.nZhtwname,
+                        bubble_NAER nBubble = new bubble_NAER(Translator.NAERSearch(true, true, true,
                                                                                     config.trancore.nSearchNum,
                                                                                     config.text),
                                                                                     config.morefunction.fontSize);

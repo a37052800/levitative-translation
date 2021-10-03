@@ -14,7 +14,7 @@ namespace LevitativeTranslotion
     public partial class bubble_NAER : Form
     {
         public string translation;
-        
+
         public bubble_NAER()
         {
             InitializeComponent();
@@ -27,7 +27,11 @@ namespace LevitativeTranslotion
             dataGridView1.Columns.Add("ZhName", "中文詞彙");
             for (int i = 0; i < result[0].Count; i++)
             {
-                dataGridView1.Rows.Add(result[0][i], result[1][i], result[2][i]);
+                try
+                {
+                    dataGridView1.Rows.Add(result[0][i], result[1][i], result[2][i]);
+                }
+                catch { }
             }
             dataGridView1.Font = new Font(dataGridView1.Font.FontFamily, fontSize);
         }
