@@ -27,7 +27,12 @@ namespace LevitativeTranslotion
         {
             this.Activate();
             this.Size = new Size(144, 132);
-            this.Location = Control.MousePosition;
+            Point location = Control.MousePosition;
+            if (location.Y + this.Height > SystemInformation.WorkingArea.Height)
+                location.Y -= this.Height;
+            if (location.X + this.Width > SystemInformation.WorkingArea.Width)
+                location.X -= this.Width;
+            this.Location = location;
         }
 
         private void toolMenu_Deactivate(object sender, EventArgs e)

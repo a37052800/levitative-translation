@@ -189,6 +189,7 @@ namespace LevitativeTranslotion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(447, 187);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox2);
@@ -201,7 +202,6 @@ namespace LevitativeTranslotion
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "googleSet";
             this.Load += new System.EventHandler(this.googleSet_Load);
             this.ResumeLayout(false);
 
