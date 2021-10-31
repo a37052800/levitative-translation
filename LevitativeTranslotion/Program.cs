@@ -103,8 +103,7 @@ namespace LevitativeTranslotion
     {
         public static string GoogleTranslatedText(string inLanguage, string outLanguage, string text)
         {
-            WebClient webClient = new WebClient();
-            webClient.Encoding = Encoding.UTF8;
+            WebClient webClient = new WebClient { Encoding = Encoding.UTF8 };
             string result = webClient.DownloadString("https://translate.googleapis.com/translate_a/single?" +
                                                      $"client=gtx&dt=t&sl={inLanguage}&tl={outLanguage}&q={text}");
             string[] splitResult = new string[2];

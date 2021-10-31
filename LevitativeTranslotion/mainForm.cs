@@ -15,7 +15,7 @@ namespace LevitativeTranslotion
     {
         private Thread thread;
         private bool running = false;
-        private string[] coretype = { "Null", "Google", "NAER" };
+        private readonly string[] coretype = { "Null", "Google", "NAER" };
         private int coreIndex = 0;
         private toolMenu menu = new toolMenu();
 
@@ -179,11 +179,8 @@ namespace LevitativeTranslotion
 
         private Config GetConfig()
         {
-            CoreConfig trancoreTag = new CoreConfig();
-            MoreConfig moreTag = new MoreConfig();
-
-            trancoreTag = (CoreConfig)Trancore.Tag;
-            moreTag = menu.GetConfig();
+            CoreConfig trancoreTag = (CoreConfig)Trancore.Tag;
+            MoreConfig moreTag = menu.GetConfig();
 
             Config config = new Config
             {
@@ -191,6 +188,10 @@ namespace LevitativeTranslotion
                 trancore = trancoreTag,
                 morefunction = moreTag
             };
+
+            config.text = config.text.Replace("\r", "");
+            config.text = config.text.Replace('\n', ' ');
+
             return config;
         }
 
