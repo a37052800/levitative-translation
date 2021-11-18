@@ -8,7 +8,7 @@
 - 可將翻譯結果貼上到特定視窗或輸出至文件
 - 漂亮的UI
 ## 下載
-* [點此下載](https://github.com/a37052800/levitative-translation/releases)
+* [點此下載](https://github.com/a37052800/levitative-translation/releases/download/v1.0.2.0/LevitativeTranslotion_1.0.2_win.zip)
 ## 界面展示
 
 ![](https://github.com/a37052800/levitative-translation/blob/main/LevitativeTranslotion/image/mainform.png?raw=true)
