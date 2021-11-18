@@ -50,16 +50,17 @@ namespace LevitativeTranslotion
             // Trancore
             // 
             this.Trancore.BackgroundImage = global::LevitativeTranslotion.Properties.Resources.trancore_normal;
+            this.Trancore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Trancore.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.Trancore.FlatAppearance.BorderSize = 0;
             this.Trancore.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.Trancore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.Trancore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Trancore.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Trancore.Location = new System.Drawing.Point(60, 194);
-            this.Trancore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Trancore.Location = new System.Drawing.Point(48, 155);
+            this.Trancore.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Trancore.Name = "Trancore";
-            this.Trancore.Size = new System.Drawing.Size(317, 34);
+            this.Trancore.Size = new System.Drawing.Size(254, 27);
             this.Trancore.TabIndex = 1;
             this.Trancore.UseVisualStyleBackColor = true;
             this.Trancore.Click += new System.EventHandler(this.Trancore_Click);
@@ -71,6 +72,7 @@ namespace LevitativeTranslotion
             // Hotkey
             // 
             this.Hotkey.BackgroundImage = global::LevitativeTranslotion.Properties.Resources.hotkey_normal;
+            this.Hotkey.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Hotkey.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Hotkey.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.Hotkey.FlatAppearance.BorderSize = 0;
@@ -78,10 +80,10 @@ namespace LevitativeTranslotion
             this.Hotkey.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.Hotkey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Hotkey.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Hotkey.Location = new System.Drawing.Point(163, 103);
-            this.Hotkey.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Hotkey.Location = new System.Drawing.Point(130, 82);
+            this.Hotkey.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Hotkey.Name = "Hotkey";
-            this.Hotkey.Size = new System.Drawing.Size(111, 49);
+            this.Hotkey.Size = new System.Drawing.Size(89, 39);
             this.Hotkey.TabIndex = 1;
             this.Hotkey.UseVisualStyleBackColor = true;
             this.Hotkey.Enter += new System.EventHandler(this.Hotkey_Enter);
@@ -93,16 +95,17 @@ namespace LevitativeTranslotion
             // Minimize
             // 
             this.Minimize.BackgroundImage = global::LevitativeTranslotion.Properties.Resources.minimize_normal;
+            this.Minimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Minimize.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.Minimize.FlatAppearance.BorderSize = 0;
             this.Minimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.Minimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Minimize.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Minimize.Location = new System.Drawing.Point(398, 12);
-            this.Minimize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Minimize.Location = new System.Drawing.Point(318, 10);
+            this.Minimize.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Minimize.Name = "Minimize";
-            this.Minimize.Size = new System.Drawing.Size(32, 32);
+            this.Minimize.Size = new System.Drawing.Size(26, 26);
             this.Minimize.TabIndex = 1;
             this.Minimize.UseVisualStyleBackColor = true;
             this.Minimize.Click += new System.EventHandler(this.Minimize_Click);
@@ -114,16 +117,17 @@ namespace LevitativeTranslotion
             // Switch
             // 
             this.Switch.BackgroundImage = global::LevitativeTranslotion.Properties.Resources.switch_off_normal;
+            this.Switch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Switch.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.Switch.FlatAppearance.BorderSize = 0;
             this.Switch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.Switch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.Switch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Switch.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Switch.Location = new System.Drawing.Point(37, 13);
-            this.Switch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Switch.Location = new System.Drawing.Point(30, 10);
+            this.Switch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Switch.Name = "Switch";
-            this.Switch.Size = new System.Drawing.Size(71, 30);
+            this.Switch.Size = new System.Drawing.Size(57, 24);
             this.Switch.TabIndex = 1;
             this.Switch.UseVisualStyleBackColor = true;
             this.Switch.Click += new System.EventHandler(this.Switch_Click);
@@ -133,16 +137,17 @@ namespace LevitativeTranslotion
             // More
             // 
             this.More.BackgroundImage = global::LevitativeTranslotion.Properties.Resources.more_normal;
+            this.More.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.More.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.More.FlatAppearance.BorderSize = 0;
             this.More.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.More.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.More.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.More.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.More.Location = new System.Drawing.Point(14, 19);
-            this.More.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.More.Location = new System.Drawing.Point(11, 15);
+            this.More.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.More.Name = "More";
-            this.More.Size = new System.Drawing.Size(7, 19);
+            this.More.Size = new System.Drawing.Size(6, 15);
             this.More.TabIndex = 1;
             this.More.UseVisualStyleBackColor = true;
             this.More.Click += new System.EventHandler(this.More_Click);
@@ -151,10 +156,10 @@ namespace LevitativeTranslotion
             // 
             // mainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(441, 276);
+            this.ClientSize = new System.Drawing.Size(353, 221);
             this.Controls.Add(this.Trancore);
             this.Controls.Add(this.Hotkey);
             this.Controls.Add(this.Minimize);
@@ -163,7 +168,7 @@ namespace LevitativeTranslotion
             this.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
             this.Name = "mainForm";
             this.ShowIcon = false;
