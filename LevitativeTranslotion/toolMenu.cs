@@ -26,7 +26,7 @@ namespace LevitativeTranslotion
         private void toolMenu_Load(object sender, EventArgs e)
         {
             this.Activate();
-            this.Size = new Size(122, 104);
+            this.Size = new Size(Paste.Width, Paste.Height + Export.Height + FontS.Height + ExitP.Height);
             Point location = Control.MousePosition;
             if (location.Y + this.Height > SystemInformation.WorkingArea.Height)
                 location.Y -= this.Height;

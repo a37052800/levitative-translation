@@ -49,12 +49,12 @@ namespace LevitativeTranslotion
             this.FontS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.FontS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.FontS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FontS.Location = new System.Drawing.Point(0, 52);
+            this.FontS.Location = new System.Drawing.Point(0, 66);
             this.FontS.Margin = new System.Windows.Forms.Padding(0);
             this.FontS.Name = "FontS";
-            this.FontS.Size = new System.Drawing.Size(122, 26);
+            this.FontS.Size = new System.Drawing.Size(144, 33);
             this.FontS.TabIndex = 2;
-            this.FontS.Text = "          字型大小";
+            this.FontS.Text = "              字型大小";
             this.FontS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.FontS.UseVisualStyleBackColor = true;
             // 
@@ -67,12 +67,12 @@ namespace LevitativeTranslotion
             this.ExitP.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
             this.ExitP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
             this.ExitP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExitP.Location = new System.Drawing.Point(0, 78);
+            this.ExitP.Location = new System.Drawing.Point(0, 99);
             this.ExitP.Margin = new System.Windows.Forms.Padding(0);
             this.ExitP.Name = "ExitP";
-            this.ExitP.Size = new System.Drawing.Size(122, 26);
+            this.ExitP.Size = new System.Drawing.Size(144, 33);
             this.ExitP.TabIndex = 3;
-            this.ExitP.Text = "          結束";
+            this.ExitP.Text = "              結束";
             this.ExitP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ExitP.UseVisualStyleBackColor = true;
             this.ExitP.Click += new System.EventHandler(this.ExitP_Click);
@@ -82,7 +82,7 @@ namespace LevitativeTranslotion
             // FontSize
             // 
             this.FontSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FontSize.Location = new System.Drawing.Point(6, 57);
+            this.FontSize.Location = new System.Drawing.Point(7, 73);
             this.FontSize.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.FontSize.Name = "FontSize";
             this.FontSize.Size = new System.Drawing.Size(24, 17);
@@ -99,8 +99,8 @@ namespace LevitativeTranslotion
             this.Down.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.Down.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.Down.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Down.Location = new System.Drawing.Point(99, 67);
-            this.Down.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Down.Location = new System.Drawing.Point(120, 82);
+            this.Down.Margin = new System.Windows.Forms.Padding(2);
             this.Down.Name = "Down";
             this.Down.Size = new System.Drawing.Size(13, 11);
             this.Down.TabIndex = 7;
@@ -120,8 +120,8 @@ namespace LevitativeTranslotion
             this.Up.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.Up.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.Up.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Up.Location = new System.Drawing.Point(99, 53);
-            this.Up.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Up.Location = new System.Drawing.Point(120, 68);
+            this.Up.Margin = new System.Windows.Forms.Padding(2);
             this.Up.Name = "Up";
             this.Up.Size = new System.Drawing.Size(13, 11);
             this.Up.TabIndex = 6;
@@ -142,12 +142,12 @@ namespace LevitativeTranslotion
             this.Export.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.Export.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.Export.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Export.Location = new System.Drawing.Point(0, 26);
+            this.Export.Location = new System.Drawing.Point(0, 33);
             this.Export.Margin = new System.Windows.Forms.Padding(0);
             this.Export.Name = "Export";
-            this.Export.Size = new System.Drawing.Size(122, 26);
+            this.Export.Size = new System.Drawing.Size(144, 33);
             this.Export.TabIndex = 1;
-            this.Export.Text = "          輸出到文件";
+            this.Export.Text = "              輸出到文件";
             this.Export.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Export.UseVisualStyleBackColor = true;
             this.Export.Click += new System.EventHandler(this.Export_Click);
@@ -167,9 +167,9 @@ namespace LevitativeTranslotion
             this.Paste.Location = new System.Drawing.Point(0, 0);
             this.Paste.Margin = new System.Windows.Forms.Padding(0);
             this.Paste.Name = "Paste";
-            this.Paste.Size = new System.Drawing.Size(122, 26);
+            this.Paste.Size = new System.Drawing.Size(144, 33);
             this.Paste.TabIndex = 0;
-            this.Paste.Text = "          貼上到視窗";
+            this.Paste.Text = "              貼上到視窗";
             this.Paste.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Paste.UseVisualStyleBackColor = true;
             this.Paste.Click += new System.EventHandler(this.Paste_Click);
@@ -188,7 +188,7 @@ namespace LevitativeTranslotion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(122, 106);
+            this.ClientSize = new System.Drawing.Size(144, 147);
             this.Controls.Add(this.Down);
             this.Controls.Add(this.Up);
             this.Controls.Add(this.FontSize);
