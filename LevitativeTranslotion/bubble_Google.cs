@@ -59,7 +59,7 @@ namespace LevitativeTranslotion
         {
             Point location = new Point();
             winAPI.GetCursorPos(ref location);
-            Rectangle screen = SystemInformation.WorkingArea;
+            Rectangle screen = SystemInformation.VirtualScreen;
             if (location.X + this.Width > screen.Width)
             {
                 location.X = screen.Width - this.Width;

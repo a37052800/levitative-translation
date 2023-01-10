@@ -179,7 +179,9 @@ namespace LevitativeTranslotion
 
         private Config GetConfig()
         {
-            CoreConfig trancoreTag = (CoreConfig)Trancore.Tag;
+            CoreConfig trancoreTag = new CoreConfig();
+            if (Trancore.Tag != null)
+                trancoreTag = (CoreConfig)Trancore.Tag;
             MoreConfig moreTag = menu.GetConfig();
 
             Config config = new Config
