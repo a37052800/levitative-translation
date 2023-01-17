@@ -1,4 +1,4 @@
-# <img src="https://github.com/a37052800/levitative-translation/blob/main/icon.png?raw=true" width="50" height="50"/> 懸浮翻譯
+# <img src="https://raw.githubusercontent.com/a37052800/levitative-translation/main/LevitativeTranslotion/icon.ico" width="50" height="50"/> 懸浮翻譯
 `開發中`
 > 常常需要閱讀英文文獻，卻又卡在沒見過的單字嗎？總是需要分心查單字？讓懸浮翻譯一鍵解決所有困擾！
 ## 特色
