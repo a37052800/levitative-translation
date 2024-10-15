@@ -24,6 +24,7 @@ namespace LevitativeTranslotion
             InitializeComponent();
             label1.Text = str;
             label1.Font = new Font(label1.Font.FontFamily, fontSize);
+            label1.MaximumSize = new Size(500, 0);
             this.Text = string.Empty;
             this.ControlBox = false;
         }

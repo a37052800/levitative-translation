@@ -184,15 +184,18 @@ namespace LevitativeTranslotion
                 trancoreTag = (CoreConfig)Trancore.Tag;
             MoreConfig moreTag = menu.GetConfig();
 
+            string temp = Clipboard.GetText();
+            temp = temp.Replace("\r", "");
+            temp = temp.Replace("\n", "");
+            
+            // MessageBox.Show(temp);
+
             Config config = new Config
             {
-                text = Clipboard.GetText(),
+                text = temp,
                 trancore = trancoreTag,
                 morefunction = moreTag
             };
-
-            config.text = config.text.Replace("\r", "");
-            config.text = config.text.Replace('\n', ' ');
 
             return config;
         }

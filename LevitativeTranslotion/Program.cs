@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Text;
 using System.Windows.Forms;
@@ -106,9 +108,14 @@ namespace LevitativeTranslotion
             WebClient webClient = new WebClient { Encoding = Encoding.UTF8 };
             string result = webClient.DownloadString("https://translate.googleapis.com/translate_a/single?" +
                                                      $"client=gtx&dt=t&sl={inLanguage}&tl={outLanguage}&q={text}");
-            string[] splitResult = new string[2];
-            splitResult = result.Split('"');
-            return splitResult[1];
+            JsonNode jsonNode = JsonNode.Parse(result);
+            string translation = "";
+            for (int i = 0; i < jsonNode[0].AsArray().Count; i++)
+            {
+                translation += jsonNode[0][i][0].ToString();
+            }
+
+            return translation;
         }
 
         public static ArrayList[] NAERSearch(bool source, bool enname, bool zhtwname, int searchNum, string text)
