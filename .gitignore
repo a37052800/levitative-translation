@@ -1,0 +1,20 @@
+# Build 目錄
+bin/
+obj/
+
+# 用於 Visual Studio 的檔案
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet 套件
+*.nupkg
+packages/
+
+# 其他暫存檔案
+*.log
+*.tmp
+*.bak
+*.swp
+.vs/
