@@ -33,6 +33,8 @@ namespace LevitativeTranslotion
         {
             this.Size = label1.Size + this.Padding.Size;
             this.Location = ShowLocation();
+            this.TopMost = true;
+            this.Activate();
 
             //Form Shadow Func
             int value = 2;

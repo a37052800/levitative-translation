@@ -42,7 +42,7 @@ namespace LevitativeTranslotion
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.Location = new System.Drawing.Point(10, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 18);
+            this.label1.Size = new System.Drawing.Size(58, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -55,8 +55,9 @@ namespace LevitativeTranslotion
             // 
             // bubble_Google
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(240, 128);
@@ -80,6 +81,7 @@ namespace LevitativeTranslotion
             this.Load += new System.EventHandler(this.bubble_Google_Load);
             this.Click += new System.EventHandler(this.Close);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.bubble_Google_Paint);
+            this.Leave += new System.EventHandler(this.Close);
             this.ResumeLayout(false);
             this.PerformLayout();
 

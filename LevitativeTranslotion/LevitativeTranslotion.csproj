@@ -210,7 +210,6 @@
     <EmbeddedResource Include="toolMenu.resx">
       <DependentUpon>toolMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="K123192350_20211129131846.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
